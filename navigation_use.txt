@@ -1,0 +1,11 @@
+* Login (Stack.Navigator)
+    - TabRoutes (Tab.Navigator)
+        * Home  
+        * Search - main (criar componente .tsx na pasta 'Routes' para definir navegação entre as duas páginas, esse componente será chamado no file 'tab.tsx' linha 58)
+            -Search Page 2
+        * Trip - main (criar componente .tsx na pasta 'Routes' para definir navegação entre as três páginas, esse componente será chamado no file 'tab.tsx' linha 69)
+            -Create new Trip
+            -Trip Post/Current Trip
+        * Chat (criar componente .tsx na pasta 'Routes' para definir navegação entre as duas páginas, esse componente será chamado no file 'tab.tsx' linha 80)
+            -Private chat
+        * Profile
