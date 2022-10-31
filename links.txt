@@ -1,0 +1,2 @@
+icons : https://icons.expo.fyi/ 
+styles properties : https://reactnative.dev/docs/layout-props#margintop
