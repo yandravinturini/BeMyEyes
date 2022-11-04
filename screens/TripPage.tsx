@@ -1,13 +1,13 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Button, Platform } from 'react-native';
-
+import Card from '../shared_functions/card'
 
 export function Trip(){    
 
   return (
-    <View style={styles.container}>
+    <Card>
       <Text>Hello from Trip page!</Text>
-    </View>
+    </Card>
   );
 }
 
@@ -20,3 +20,4 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
+
