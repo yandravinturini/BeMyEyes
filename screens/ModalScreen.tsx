@@ -20,6 +20,8 @@ export default function ModalScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    paddingTop: Platform.OS === 'android'? /* StatusBar.currentHeight */ 20: 0,
+    backgroundColor: "#EBEBEB",
     alignItems: 'center',
     justifyContent: 'center',
   },

@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Button } from 'react-native';
+import { StyleSheet, Text, View, Button, Platform, /* StatusBar */ } from 'react-native';
 
 
 export function Login({ navigation }){        //no typescript é preciso fazer uma 'tipagem', funciona sem o fazer mas da este erro
@@ -21,7 +21,8 @@ export function Login({ navigation }){        //no typescript é preciso fazer u
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'red',
+    paddingTop: Platform.OS === 'android'? /* StatusBar.currentHeight */ 20 : 0,
+    backgroundColor: "#EBEBEB",
     alignItems: 'center',
     justifyContent: 'center',
   },

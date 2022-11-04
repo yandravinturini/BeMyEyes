@@ -1,4 +1,4 @@
-import { StyleSheet, TouchableOpacity } from 'react-native';
+import { StyleSheet, TouchableOpacity, Platform } from 'react-native';
 
 import { Text, View } from '../components/Themed';
 import { RootStackScreenProps } from '../types';
@@ -17,6 +17,8 @@ export default function NotFoundScreen({ navigation }: RootStackScreenProps<'Not
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    paddingTop: Platform.OS === 'android'? /* StatusBar.currentHeight */ 20 : 0,
+    backgroundColor: "#EBEBEB",
     alignItems: 'center',
     justifyContent: 'center',
     padding: 20,
