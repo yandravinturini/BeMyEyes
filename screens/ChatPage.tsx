@@ -1,5 +1,5 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Button } from 'react-native';
+// import {  } from 'expo-status-bar';
+import { StyleSheet, Text, View, Button, Platform, StatusBar } from 'react-native';
 
 
 export function ChatPage(){    
@@ -14,7 +14,8 @@ export function ChatPage(){
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'red',
+    paddingTop: Platform.OS === 'android'? StatusBar.currentHeight : 0,
+    backgroundColor: "#EBEBEB",
     alignItems: 'center',
     justifyContent: 'center',
   },
