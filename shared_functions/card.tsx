@@ -1,10 +1,8 @@
-import { useLinkProps } from '../screens/@react-navigation/native';
-import { StatusBar } from '../screens/expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, View, Button } from 'react-native';
 
 
-export default function Card(props) {    
+export default function Card(props:any) {    
 
   return (
     <View style={styles.card}>
