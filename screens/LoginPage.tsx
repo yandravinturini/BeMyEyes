@@ -1,8 +1,15 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Button } from 'react-native';
+import { StyleSheet, Text, View, Button, TextInput } from 'react-native';
+import data from '../data/test.json';
+import * as RNFS from 'react-native-fs';
+import React from 'react';
+
 
 
 export function Login({ navigation }){        //no typescript é preciso fazer uma 'tipagem', funciona sem o fazer mas da este erro
+  // const [text, onChangeText] = React.useState('Useless Text');
+  // const [number, onChangeNumber] = React.useState(null);
+
   function openApp() {
     navigation.navigate('Menu')
   }
@@ -18,11 +25,16 @@ export function Login({ navigation }){        //no typescript é preciso fazer u
   );
 }
 
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'red',
+    backgroundColor: 'white',
     alignItems: 'center',
     justifyContent: 'center',
   },
+  input: {
+
+  }
+
 });
