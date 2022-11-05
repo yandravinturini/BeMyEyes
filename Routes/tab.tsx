@@ -1,5 +1,3 @@
-//menu
-
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 const Tab = createBottomTabNavigator();
@@ -12,6 +10,7 @@ import { Search } from '../screens/SearchPage';
 import { Ionicons } from '@expo/vector-icons';
 import React, * as react from 'react';
 
+
 export function TabRoutes() {
   return (
     <Tab.Navigator initialRouteName="Home"
@@ -21,7 +20,7 @@ export function TabRoutes() {
         tabBarInactiveTintColor: "#fff",
         tabBarStyle: { backgroundColor: "#1D5F98", paddingTop: 15, paddingBottom: 8, height: 65, borderTopColor: 'transparent' },
         tabBarLabelStyle: { marginTop: 5 },
-        headerStyle: { borderBottomColor: 'transparent' },
+        headerStyle: { borderBottomColor: 'transparent', backgroundColor: '#EBEBEB' },
         headerTitle: '',
         headerLeftContainerStyle: {marginTop:10, marginBottom: 10},
         headerLeft: () => (
