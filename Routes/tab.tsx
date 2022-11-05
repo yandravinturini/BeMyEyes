@@ -3,7 +3,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 const Tab = createBottomTabNavigator();
 
 import { HomePage } from '../screens/HomePage';
-import { Trip } from '../screens/TripPage';
+import { Trip_page } from '../screens/TripPage';
 import { ChatPage } from '../screens/ChatPage';
 import { Profile } from '../screens/ProfilePage';
 import { Search } from '../screens/SearchPage';
@@ -63,7 +63,7 @@ export function TabRoutes() {
               name={focused ? "airplane" : "airplane-outline"}
               size={30} color="white" />,
         }}
-        component={Trip}
+        component={Trip_page}
       />
       <Tab.Screen
         name='Chat'
