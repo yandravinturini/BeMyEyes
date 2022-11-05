@@ -26,13 +26,14 @@ export function Trip_page(){
 	}
 
   return (
-    <View>
-      <View style={styles.container}>
-        <Text>Ongoing trips</Text>
+    <View style={styles.container}>
+      <View style={styles.ongoingTrips}>
+        <Text style={styles.title}>Ongoing trips</Text>
         {ongoingTripsCards}
       </View>
-      <View style={styles.container}>
-        <Text>Past trips</Text>
+
+      <View style={styles.pastTrips}>
+        <Text style={styles.title}>Past trips</Text>
         {pastTripsCards}
       </View>
     </View>
@@ -44,11 +45,26 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingTop: Platform.OS === 'android'? /* StatusBar.currentHeight */ 20 : 0,
     backgroundColor: "#EBEBEB",
-    alignItems: 'flex-start',
-    justifyContent: 'center',
+    alignItems: 'center',
+    justifyContent: 'flex-start',
     width: '100%',
+    paddingLeft: 0,
+
+  },
+
+  ongoingTrips: {
+    height: 200,
+
+  },
+
+  pastTrips: {
     height: 300,
 
   },
+
+  title: {
+    marginBottom: 5,
+  }
+
 });
 

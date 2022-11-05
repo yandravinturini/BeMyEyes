@@ -7,16 +7,26 @@ export function Card(trip:Trip) {
 
   return (
     <View style={styles.card}>
+
       <View style={styles.destinationImage}> 
-      </View>    
-      <View style={styles.destination}>
-         <text>{trip.place}</text>    
-      </View>    
-      <View style={styles.startDate}>
-         <text>{trip.startDate.getDate()+"-"+(trip.startDate.getMonth()+1)+"-"+ trip.startDate.getFullYear()}</text>    
-      </View> 
-      <View style={styles.profileImage}>  
-      </View> 
+      </View>  
+
+      <View style={styles.aboutTrip}>
+        <View style={styles.destination}>
+          <text>{trip.place}</text>    
+        </View>  
+        <View style={styles.startDate}>
+          <text>{trip.startDate.getDate()+"-"+(trip.startDate.getMonth()+1)+"-"+ trip.startDate.getFullYear()}</text>    
+        </View>
+      </View>
+ 
+      <View style={styles.aboutUser}>
+        <View style={styles.profileImage}>  
+        </View> 
+        <View style={styles.user}>  
+        </View> 
+      </View>
+
 
     </View>
   )
@@ -28,10 +38,28 @@ const styles = StyleSheet.create({
     backgroundColor: '#1D5F98',
     width: '100%',
     height: 75,
-    flexDirection: 'column',
+    flex: 1,
+    flexDirection: "row",
     justifyContent: 'flex-start',
     alignItems: 'center',
     marginBottom: 10,
+
+  },
+
+  destinationImage: {
+    width: 75,
+
+  },
+
+  aboutTrip: {
+    width: 150,
+    margin: 4,
+
+  },
+
+  aboutUser: {
+    width: 75,
+    margin: 4,
 
   },
 
@@ -43,16 +71,14 @@ const styles = StyleSheet.create({
 
   },
 
-  destinationImage: {
-    backgroundColor: 'pink',
-    width: 75,
-
-  },
-
   profileImage:{
     backgroundColor: 'red',
     width: 75,
 
-  }
+  },
+
+  user: {
+
+  },
 
 });
