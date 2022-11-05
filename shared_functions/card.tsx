@@ -1,33 +1,58 @@
 import React from 'react';
 import { StyleSheet, Text, View, Button } from 'react-native';
+import {Trip} from '../shared_functions/trip';
 
 
-export default function Card(props:any) {    
+export function Card(trip:Trip) {    
 
   return (
     <View style={styles.card}>
-      <View style={styles.cardContent}>
-         { props.children } 
+      <View style={styles.destinationImage}> 
       </View>    
+      <View style={styles.destination}>
+         <text>{trip.place}</text>    
+      </View>    
+      <View style={styles.startDate}>
+         <text>{trip.startDate.getDate()+"-"+(trip.startDate.getMonth()+1)+"-"+ trip.startDate.getFullYear()}</text>    
+      </View> 
+      <View style={styles.profileImage}>  
+      </View> 
+
     </View>
   )
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: 'red',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
 
   card: {
     backgroundColor: '#1D5F98',
+    width: '100%',
+    height: 75,
+    flexDirection: 'column',
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+    marginBottom: 10,
 
   },
 
-  cardContent: {
+  destination: {
 
   },
+
+  startDate: {
+
+  },
+
+  destinationImage: {
+    backgroundColor: 'pink',
+    width: 75,
+
+  },
+
+  profileImage:{
+    backgroundColor: 'red',
+    width: 75,
+
+  }
 
 });
