@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View, TextInput, Image, Pressable } from 'react-native';
 import { Picker } from '@react-native-picker/picker';
 import { useState } from 'react';
-import userImage from '../assets/images/Ellipse 2.png';
+// import userImage from '../assets/images/Ellipse 2.png'  source={userImage};
 import React from 'react';
 import { Ionicons } from '@expo/vector-icons';
 
@@ -13,7 +13,7 @@ export function Profile() {
     <View style={styles.container}>
 
       <View style={styles.userImgContainer}>
-        <Image source={userImage} style={styles.imagem} />
+        <Image source={require('../assets/images/foto_perfil.png')}/>
         <Ionicons name="camera-outline" style={styles.cameraIcon} />
       </View>
 
@@ -111,10 +111,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     height: 140,
   },
-  imagem: {
-    width: 117,
-    height: 117,
-  },
+
   cameraIcon: {
     backgroundColor: '#1D5F98',
     color: 'white',
