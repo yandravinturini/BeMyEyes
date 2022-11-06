@@ -4,7 +4,8 @@ import { StyleSheet } from 'react-native';
 const Tab = createBottomTabNavigator();
 
 import { HomePage } from '../screens/HomePage';
-import { Trip_page } from '../screens/TripPage';
+import { TripPage } from '../screens/TripPage';
+import { PreConfirmScreen } from '../screens/PreConfirmScreen';
 import { ChatPage } from '../screens/ChatPage';
 import { Profile } from '../screens/ProfilePage';
 import { Search } from '../screens/SearchPage';
@@ -64,7 +65,7 @@ export function TabRoutes() {
               name={focused ? "airplane" : "airplane-outline"}
               size={30} color="white" />,
         }}
-        component={Trip_page}
+        component={PreConfirmScreen}
       />
       <Tab.Screen
         name='Chat'
