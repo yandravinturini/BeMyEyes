@@ -50,6 +50,7 @@ export function Profile() {
       <TextInput style={styles.input}
         // onChangeText={onChangeNumber}
         // value={number}
+        secureTextEntry={true}
         placeholder="********" />
 
       <Pressable style={styles.saveButton}>
