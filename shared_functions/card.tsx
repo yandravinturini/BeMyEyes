@@ -25,10 +25,8 @@ export function Card(trip:Trip) {
         <View style={styles.profileImage}>
           <Text> </Text>
         </View>
-
-
         <View style={styles.partner}>         
-        <Text> @{trip.traveller} </Text>
+          <Text> @{trip.traveller} </Text>
         </View>        
       </View>  
 
