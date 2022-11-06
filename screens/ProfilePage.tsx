@@ -1,8 +1,9 @@
-import { StyleSheet, Text, View, TextInput, Image, Button } from 'react-native';
+import { StyleSheet, Text, View, TextInput, Image, Pressable } from 'react-native';
 import { Picker } from '@react-native-picker/picker';
 import { useState } from 'react';
 import userImage from '../assets/images/Ellipse 2.png';
 import React from 'react';
+import { Ionicons } from '@expo/vector-icons';
 
 export function Profile() {
 
@@ -12,6 +13,7 @@ export function Profile() {
     <View style={styles.container}>
       <View style={styles.userImgContainer}>
         <Image source={userImage} style={styles.imagem} />
+        <Ionicons name="camera-outline" style={styles.cameraIcon} />
       </View>
       <Text style={styles.text}>Username</Text>
       <TextInput style={styles.input}
@@ -39,7 +41,7 @@ export function Profile() {
         // onChangeText={onChangeNumber}
         // value={number}
         placeholder="********" />
-        <Button title="Save changes"/>
+      <Pressable style={styles.saveButton}>Save changes</Pressable>
     </View>
   );
 }
@@ -60,7 +62,7 @@ const styles = StyleSheet.create({
     marginBottom: 8,
   },
   input: {
-    fontSize: 14,
+    fontSize: 15,
     fontFamily: 'Inter',
     fontWeight: '400',
     backgroundColor: 'white',
@@ -73,7 +75,7 @@ const styles = StyleSheet.create({
     paddingLeft: 10,
   },
   dropdown: {
-    fontSize: 14,
+    fontSize: 15,
     fontFamily: 'Inter',
     fontWeight: '400',
     backgroundColor: 'white',
@@ -85,6 +87,7 @@ const styles = StyleSheet.create({
     marginRight: 'auto',
     marginBottom: 15,
     paddingLeft: 10,
+    dropdownIconRippleColor: '#1D5F98'
   },
   userImgContainer: {
     // borderColor: 'red',
@@ -92,8 +95,34 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     height: 140,
   },
-  imagem:{
-    width: 117, 
+  imagem: {
+    width: 117,
     height: 117,
+  },
+  cameraIcon: {
+    backgroundColor: '#1D5F98',
+    color: 'white',
+    fontSize: 28,
+    paddingRight: 2,
+    paddingLeft: 2,
+    borderRadius: 4,
+    position: 'absolute',
+    marginTop: 85,
+    marginLeft: 90,
+  },
+  saveButton: {
+    backgroundColor: '#1D5F98',
+    color: 'white',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginLeft: 'auto',
+    marginRight: 'auto',
+    marginTop: 10,
+    width: 151,
+    height: 30,
+    borderRadius: 26,
+    // fontFamily: 'Inter',
+    fontWeight: '400',
+    fontSize: 15,
   }
 });
