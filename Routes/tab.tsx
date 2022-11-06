@@ -1,4 +1,5 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { StyleSheet } from 'react-native';
 
 const Tab = createBottomTabNavigator();
 
@@ -9,7 +10,6 @@ import { Profile } from '../screens/ProfilePage';
 import { Search } from '../screens/SearchPage';
 import { Ionicons } from '@expo/vector-icons';
 import React, * as react from 'react';
-
 
 export function TabRoutes() {
   return (
@@ -80,6 +80,7 @@ export function TabRoutes() {
         name='Profile'
         options={{
           tabBarLabel: 'Profile',
+          headerRight: () => (<Ionicons name="ellipsis-horizontal" style={styles.moreOptionsICon}/>),
           tabBarIcon: ({ focused }) =>
             <Ionicons
               name={focused ? "person" : "person-outline"}
@@ -90,3 +91,13 @@ export function TabRoutes() {
     </Tab.Navigator>
   );
 }
+
+const styles = StyleSheet.create({
+  moreOptionsICon: {
+    fontSize: 35,
+    marginRight:30,
+    color: "#1D5F98",
+
+  }
+
+});
