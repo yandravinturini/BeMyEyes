@@ -29,12 +29,12 @@ export function Trip_page(){
     <View style={styles.container}>
       <View style={styles.ongoingTrips}>
         <Text style={styles.title}>Ongoing trips</Text>
-        {ongoingTripsCards}
+        {/* {ongoingTripsCards} */}
       </View>
 
       <View style={styles.pastTrips}>
         <Text style={styles.title}>Past trips</Text>
-        {pastTripsCards}
+        {/* {pastTripsCards} */}
       </View>
     </View>
   );
