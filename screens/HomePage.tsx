@@ -7,7 +7,7 @@ const { width, height} = Dimensions.get("window");
 export function HomePage( ) {
   return (
     <View style={styles.container}>
-      <Image source={require("../assets/images/Logo.svg")}/>
+      
         <Text style={styles.titles}>Your Trips</Text>
         <View>
 
@@ -42,10 +42,12 @@ const styles = StyleSheet.create({
     justifyContent:"space-between",
     alignItems: "flex-start",
   },
+
   titles:{
     padding: 20,
     fontSize: 20,
   },
+  
   map: {
     width: width,
     height: height
