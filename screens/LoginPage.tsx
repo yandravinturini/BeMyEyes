@@ -1,3 +1,4 @@
+
 import { StatusBar } from "expo-status-bar";
 import React, { useState } from "react";
 import {
@@ -8,7 +9,7 @@ import {
   TouchableOpacity,
 } from "react-native";
  
-export function Login({ navigation }){        //no typescript é preciso fazer uma 'tipagem', funciona sem o fazer mas da este erro
+export function Login({ navigation }: {navigation: any}){        //no typescript é preciso fazer uma 'tipagem', funciona sem o fazer mas da este erro
   function openApp() {
     navigation.navigate('Menu')
   }
