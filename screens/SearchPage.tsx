@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { MaterialIcons } from '@expo/vector-icons';
 import { StyleSheet, Text, TextInput, View, Platform, TouchableOpacity, ImageBackground } from 'react-native';
 
-export function Search({ navigation }) {
+export function Search({ navigation } : {navigation: any}) {
 
   function foundTrips() {
     navigation.navigate('FoundTrips', {firstLoc: location,})
@@ -42,9 +42,9 @@ export function Search({ navigation }) {
             disabled={checkLocation() ? true : false}
             onPress={foundTrips}
           >
-            <svg width="27" height="25" viewBox="0 0 27 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+            {/* <svg width="27" height="25" viewBox="0 0 27 25" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M14.125 1L25.375 12.25L14.125 23.5M23.8125 12.25H1" stroke={checkColor()} stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-            </svg>
+            </svg> */}
             
           </TouchableOpacity>
         </View>
@@ -63,7 +63,7 @@ const styles = StyleSheet.create({
   },
 
   text: {
-    fontFamily: 'Inter',
+    // fontFamily: 'Inter',
     fontStyle: 'normal',
     fontSize: 32,
     marginBottom: 20,
@@ -75,7 +75,7 @@ const styles = StyleSheet.create({
   },
 
   input_location: {
-    fontFamily: 'Inter',
+    // fontFamily: 'Inter',
     fontStyle: 'normal',
     fontSize: 17,
     paddingLeft: 10,

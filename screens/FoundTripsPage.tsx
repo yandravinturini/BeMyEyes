@@ -6,7 +6,7 @@ import {Trip} from '../shared_functions/trip';
 import {Card} from '../shared_functions/card'
 import { TabRoutes } from '../routes/tab';
 
-export function FoundTrips({route}){    
+export function FoundTrips({route}: {route:any}){    
   const [counter, setCounter] = useState(0)
 
   const trip1 = new Trip("", "Joana", "Cairo", "2023-05-3", "2022-05-10", "passageiro")
@@ -129,9 +129,9 @@ export function FoundTrips({route}){
               disabled={checkLocation() ? true : false}
               onPress={onPressFunction}
             >
-              <svg width="27" height="25" viewBox="0 0 27 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+              {/* <svg width="27" height="25" viewBox="0 0 27 25" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M14.125 1L25.375 12.25L14.125 23.5M23.8125 12.25H1" stroke={checkColor()} stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-              </svg>
+              </svg> */}
               
             </TouchableOpacity>
           </View>
@@ -253,7 +253,7 @@ const styles = StyleSheet.create({
   },
 
   text: {
-    fontFamily: 'Inter',
+    // fontFamily: 'Inter',
     fontStyle: 'normal',
     fontSize: 25,
     marginBottom: 10,
@@ -265,7 +265,7 @@ const styles = StyleSheet.create({
   },
 
   text_no_dest:{
-    fontFamily: 'Inter',
+    // fontFamily: 'Inter',
     fontStyle: 'normal',
     fontSize: 18,
     marginBottom: 10,
@@ -277,7 +277,7 @@ const styles = StyleSheet.create({
   },
 
   input_location: {
-    fontFamily: 'Inter',
+    // fontFamily: 'Inter',
     fontStyle: 'normal',
     fontSize: 17,
     paddingLeft: 10,
