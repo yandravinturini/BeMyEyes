@@ -12,6 +12,7 @@ import { Search } from '../screens/SearchPage';
 import { Ionicons } from '@expo/vector-icons';
 import React, * as react from 'react';
 import { SearchRoutes } from './searchtrips';
+import { ChatRoutes } from './chat';
 
 export function TabRoutes() {
   return (
@@ -75,7 +76,7 @@ export function TabRoutes() {
               name={focused ? "chatbubble" : "chatbubble-outline"}
               size={35} color="white" />,
         }}
-        component={ChatPage}
+        component={ChatRoutes}
       />
       <Tab.Screen
         name='Profile'
