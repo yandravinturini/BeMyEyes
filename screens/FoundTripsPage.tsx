@@ -9,13 +9,13 @@ import { TabRoutes } from '../routes/tab';
 export function FoundTrips({route}){    
   const [counter, setCounter] = useState(0)
 
-  const trip1 = new Trip("", "Joana", "Cairo", "2023-05-3", "2022-05-10")
-  const trip2 = new Trip("", "Robert", "Cairo", "2023-01-23", "2022-01-31")
-  const trip3 = new Trip("", "Carlo", "Cairo", "2023-01-27", "2022-02-4")
-  const trip4 = new Trip("", "Isa", "Berlin", "2023-03-26", "2023-03-30")
-  const trip5 = new Trip("", "Anne Marie", "Paris", "2023-03-27", "2023-04-10")
-  const trip6 = new Trip("", "Fred", "Madrid", "2023-05-3", "2023-5-10")
-  const trip7 = new Trip("", "Polly", "Monte Carlo", "2023-05-3", "2023-05-10")
+  const trip1 = new Trip("", "Joana", "Cairo", "2023-05-3", "2022-05-10", "passageiro")
+  const trip2 = new Trip("", "Robert", "Cairo", "2023-01-23", "2022-01-31", "passageiro")
+  const trip3 = new Trip("", "Carlo", "Cairo", "2023-01-27", "2022-02-4", "passageiro")
+  const trip4 = new Trip("", "Isa", "Berlin", "2023-03-26", "2023-03-30", "passageiro")
+  const trip5 = new Trip("", "Anne Marie", "Paris", "2023-03-27", "2023-04-10", "passageiro")
+  const trip6 = new Trip("", "Fred", "Madrid", "2023-05-3", "2023-5-10", "passageiro")
+  const trip7 = new Trip("", "Polly", "Monte Carlo", "2023-05-3", "2023-05-10", "passageiro")
 
   const [location, setLocation] = useState("");
   const [location_, setLocation_] = useState("");
@@ -153,9 +153,7 @@ export function FoundTrips({route}){
           </View>
         </View>
         <View style={styles.container3}>
-          <View style={{height: defineHeight()}}>
-          ` {filterLocation()}`
-          </View>
+          {filterLocation()}
         </View>
       </ScrollView>
     </View>
@@ -182,6 +180,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     paddingLeft: 0,
     margin: 30, 
+    backgroundColor: "#EBEBEB",
   },
 
   container2: {
@@ -193,6 +192,7 @@ const styles = StyleSheet.create({
   //  justifyContent: 'center',
     paddingLeft: 0,
     backgroundColor: "#EBEBEB",
+    marginBottom: 10,
   },
 
   container3: {
@@ -202,7 +202,7 @@ const styles = StyleSheet.create({
     width: '100%',
     paddingLeft: 0,
     marginTop: 0,
-    height: 700,
+//    height: 700,
     backgroundColor: "#EBEBEB",
   },
 
@@ -272,7 +272,7 @@ const styles = StyleSheet.create({
     marginTop: 50,
     marginLeft: 'auto',
     marginRight: 'auto',
-    color: "white",
+    color: "black",
     alignSelf: 'center',
   },
 

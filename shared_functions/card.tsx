@@ -26,7 +26,7 @@ export function Card(trip:Trip) {
           <Text> </Text>
         </View>
         <View style={styles.partner}>         
-          <Text> @{trip.traveller} </Text>
+          <Text style={{color:'#EBEBEB', fontSize: 13}}> @{trip.traveller} </Text>
         </View>        
       </View>  
 
@@ -44,18 +44,13 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-start',
     alignItems: 'center',
     marginBottom: 10,
-    
-
   },
 
   destinationImage: {
     backgroundColor: 'gray',
-    height: 80,
+    height: 90,
     width: 80,
     marginRight: 5,
-    
-
-
   },
 
   aboutTrip: {
@@ -81,6 +76,7 @@ const styles = StyleSheet.create({
     color: "#EBEBEB",
     height:40,
     padding:5,
+    textColor:'#EBEBEB',
   },
 
   startDate: {
@@ -90,7 +86,8 @@ const styles = StyleSheet.create({
     lineHeight: 17,
     color: "#EBEBEB",
     height:20,
-    padding:5, 
+    padding:5,
+    textColor:'#EBEBEB', 
   },
 
 
@@ -112,7 +109,7 @@ const styles = StyleSheet.create({
     width: 80,
     alignItems: 'center',
     justifyContent: 'center',
-
+    color:'#EBEBEB',
   },
 
 
@@ -122,7 +119,6 @@ const styles = StyleSheet.create({
     height: 50,
     width: 50,
     padding:5,
-
   },
 
   partner: {
