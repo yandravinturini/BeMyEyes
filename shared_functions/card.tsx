@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, Button } from 'react-native';
+import { StyleSheet, Text, View, Image, Button } from 'react-native';
 import {Trip} from '../shared_functions/trip';
 
 
@@ -9,24 +9,26 @@ export function Card(trip:Trip) {
     <View style={styles.card}>
 
       <View style={styles.destinationImage}> 
+        <Text>  </Text>
       </View>  
 
-      <View style={styles.aboutTrip}>
+      <View style={styles.aboutTrip}> 
         <View>
-          <Text style={styles.destination}>{trip.place}</Text>    
-        </View>  
-        <View>
-          <Text style={styles.startDate}>{trip.startDate.getDate()+"-"+(trip.startDate.getMonth()+1)+"-"+ trip.startDate.getFullYear()}</Text>    
+          <Text style={styles.destination}> {trip.place} </Text>
         </View>
-      </View>
- 
-      <View style={styles.aboutUser}>
-        <View style={styles.profileImage}>  
-        </View> 
-        <View >  
-          <Text style={styles.user}>{'@'+ trip.traveller}</Text>
-        </View> 
-      </View>
+        <View>
+          <Text style={styles.startDate}> 22/08 </Text>
+        </View>
+      </View>  
+
+      <View style={styles.aboutPartner}> 
+        <View style={styles.profileImage}>
+          <Text> </Text>
+        </View>
+        <View style={styles.partner}>         
+          <Text> @{trip.traveller} </Text>
+        </View>        
+      </View>  
 
 
     </View>
@@ -37,18 +39,22 @@ const styles = StyleSheet.create({
 
   card: {
     backgroundColor: '#1D5F98',
-    width: '100%',
-    height: 75,
     flex: 1,
     flexDirection: "row",
     justifyContent: 'flex-start',
     alignItems: 'center',
     marginBottom: 10,
+    
 
   },
 
   destinationImage: {
-    width: 75,
+    backgroundColor: 'gray',
+    height: 80,
+    width: 80,
+    marginRight: 5,
+    
+
 
   },
 
@@ -73,6 +79,8 @@ const styles = StyleSheet.create({
     fontSize: 19,
     lineHeight: 25,
     color: "#EBEBEB",
+    height:40,
+    padding:5,
   },
 
   startDate: {
@@ -81,12 +89,10 @@ const styles = StyleSheet.create({
     fontSize: 12,
     lineHeight: 17,
     color: "#EBEBEB",
+    height:20,
+    padding:5, 
   },
 
-  profileImage:{
-    backgroundColor: 'red',
-    width: 75,
-  },
 
   user: {
     fontFamily: 'Inter',
@@ -94,6 +100,35 @@ const styles = StyleSheet.create({
     fontSize: 11,
     lineHeight: 16,
     color: "#EBEBEB",
+    height: 80,
+    width: "50%",
+    marginRight: 5,
+
+  },
+
+  aboutPartner: {
+    marginLeft:'auto',
+    marginRight: 10,
+    width: 80,
+    alignItems: 'center',
+    justifyContent: 'center',
+
+  },
+
+
+  profileImage:{
+    backgroundColor: 'white',
+    borderRadius: 30,
+    height: 50,
+    width: 50,
+    padding:5,
+
+  },
+
+  partner: {
+    padding:2,
+    height: 16,
+
   },
 
 });
