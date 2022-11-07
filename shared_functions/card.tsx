@@ -1,37 +1,36 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image, Button } from 'react-native';
+import { StyleSheet, Text, View, Image, Button, TouchableOpacity } from 'react-native';
 import {Trip} from '../shared_functions/trip';
 
 
 export function Card(trip:Trip) {    
 
   return (
+    <TouchableOpacity onPress={()}>
     <View style={styles.card}>
+        <View style={styles.destinationImage}> 
+          <Text>  </Text>
+        </View>  
 
-      <View style={styles.destinationImage}> 
-        <Text>  </Text>
-      </View>  
+        <View style={styles.aboutTrip}> 
+          <View>
+            <Text style={styles.destination}> {trip.place} </Text>
+          </View>
+          <View>
+            <Text style={styles.startDate}> {(trip.startDate).toDateString()} </Text>
+          </View>
+        </View>  
 
-      <View style={styles.aboutTrip}> 
-        <View>
-          <Text style={styles.destination}> {trip.place} </Text>
-        </View>
-        <View>
-          <Text style={styles.startDate}> 22/08 </Text>
-        </View>
-      </View>  
-
-      <View style={styles.aboutPartner}> 
-        <View style={styles.profileImage}>
-          <Text> </Text>
-        </View>
-        <View style={styles.partner}>         
-          <Text style={{color:'#EBEBEB', fontSize: 13}}> @{trip.traveller} </Text>
-        </View>        
-      </View>  
-
-
+        <View style={styles.aboutPartner}> 
+          <View style={styles.profileImage}>
+            <Text> </Text>
+          </View>
+          <View style={styles.partner}>         
+            <Text style={{color:'#EBEBEB', fontSize: 13}}> @{trip.traveller} </Text>
+          </View>        
+        </View>  
     </View>
+    </TouchableOpacity>
   )
 }
 

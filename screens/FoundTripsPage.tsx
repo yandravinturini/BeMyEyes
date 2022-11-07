@@ -1,13 +1,14 @@
 import { Ionicons } from '@expo/vector-icons';
 import { StatusBar } from 'expo-status-bar';
 import React, { useEffect, useState } from "react";
-import { StyleSheet, Text, TextInput, ScrollView, Pressable, View, Platform, TouchableOpacity, FlatList } from 'react-native';
+import { StyleSheet, Text, TextInput, ScrollView, Pressable, View, Platform, TouchableOpacity, FlatList, Touchable } from 'react-native';
 import {Trip} from '../shared_functions/trip';
 import {Card} from '../shared_functions/card'
 import { TabRoutes } from '../routes/tab';
 
 export function FoundTrips({route}){    
   const [counter, setCounter] = useState(0)
+  const [orderAsc, setOrderAsc] = useState(0)
 
   const trip1 = new Trip("", "Joana", "Cairo", "2023-05-3", "2022-05-10", "passageiro")
   const trip2 = new Trip("", "Robert", "Cairo", "2023-01-23", "2022-01-31", "passageiro")
@@ -52,10 +53,26 @@ export function FoundTrips({route}){
 
   var futureTripsCards = [];
 
+  const onPressLast = () => {
+    if (orderAsc === 0){
+      setOrderAsc(orderAsc => 1)
+    }
+    else{
+      setOrderAsc(orderAsc => 0)
+    }
+  }
 
   const filterLocation = () =>{
     futureTripsCards = [];
     let futureTrips = [trip1, trip2, trip3, trip4, trip5, trip6, trip7];
+
+    if (orderAsc === 0){
+      futureTrips.sort((a, b) => (a.startDate < b.startDate ? -1 : 1));
+    }
+    
+    if(orderAsc == 1){
+      futureTrips.sort((a, b) => (a.startDate > b.startDate ? -1 : 1));
+    }
 
     if (counter === 0){
       for(let i = 0; i < futureTrips.length; i++){
@@ -84,6 +101,7 @@ export function FoundTrips({route}){
     }
   }
     
+  /*
   const defineHeight = () =>{
     let futureTrips = [trip1, trip2, trip3, trip4, trip5, trip6, trip7];
     futureTripsCards = [];
@@ -113,10 +131,11 @@ export function FoundTrips({route}){
     }
   }
 
-// onChangeText={(location) => setLocation(location)}>
+// onChangeText={(location) => setLocation(location)}> */
   return (
     <View style={styles.container}>
       <ScrollView>
+      <Text style={styles.textWhereTo}>Where to?</Text>
       <View style={styles.container1}>
         <View style={{ flexDirection: 'row', alignItems:'center' }}>
             <TextInput
@@ -141,14 +160,21 @@ export function FoundTrips({route}){
             <View style={styles.filters}>
               <Text style={styles.text}>Filters</Text>
             </View>
-            <View style={styles.late}>
-              <Text style={styles.text}>Last</Text>
+            <View style={styles.last}>
+              <TouchableOpacity style={styles.lastButton}
+                onPress={onPressLast}>
+                <Text style={styles.textButton}>Incoming</Text>
+              </TouchableOpacity>
             </View>
             <View style={styles.datedown}>
-              <Text style={styles.text}>Date</Text>
+              <TouchableOpacity style={styles.lastButton}>
+                <Text style={styles.textButton}>Date</Text>
+              </TouchableOpacity>
             </View>
             <View style={styles.intimacy}>
-              <Text style={styles.text}>Intimacy</Text>
+              <TouchableOpacity style={styles.lastButton}>
+                <Text style={styles.textButton}>Intimacy</Text>
+              </TouchableOpacity>
             </View>
           </View>
         </View>
@@ -179,7 +205,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     paddingLeft: 0,
-    margin: 30, 
+    marginBottom: 30, 
+    marginTop: 0,
     backgroundColor: "#EBEBEB",
   },
 
@@ -201,7 +228,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     width: '100%',
     paddingLeft: 0,
-    marginTop: 0,
+    marginTop: 20,
 //    height: 700,
     backgroundColor: "#EBEBEB",
   },
@@ -211,7 +238,7 @@ const styles = StyleSheet.create({
     alignItems: 'flex-start',
     justifyContent: 'flex-start',
     paddingLeft: 0,
-    width: '40%',
+    width: '35%',
     margin: 0,
     padding: 0,
     backgroundColor: "#EBEBEB",
@@ -222,8 +249,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     paddingLeft: 0,
-    width: '15%',
-    margin: 5,
+    width: '20%',
+    margin: 2,
     marginTop: 0,
   },
 
@@ -232,25 +259,45 @@ const styles = StyleSheet.create({
     alignItems: 'flex-end',
     justifyContent: 'center',
     paddingLeft: 0,
-    width: '15%',
-    margin: 5,
+    width: '35%',
+    margin: 2,
     marginTop: 0,
   },
 
-  late: {
+  last: {
     backgroundColor: "#EBEBEB",
     alignItems: 'center',
     justifyContent: 'center',
     paddingLeft: 0,
-    width: '15%',
+    width: '35%',
     height: 40,
     margin: 2,
     marginTop: 0,
   },
   
-  futureTrips: {
-    height: 700,
+  lastButton: {
+    backgroundColor: '#88B83B',
+    borderRadius: 9,
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingLeft: 0,
+    width: '100%',
+    height: 30,
+    margin: 2,
+    marginTop: 0,
   },
+
+  textButton: {
+    fontFamily: 'Inter',
+    alignSelf: 'center',
+    fontStyle: 'normal',
+    color: "#EBEBEB",
+    fontSize: 18,
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingLeft: 0,
+  },
+
 
   text: {
     fontFamily: 'Inter',
@@ -258,6 +305,17 @@ const styles = StyleSheet.create({
     fontSize: 25,
     marginBottom: 10,
     marginTop: 0,
+    marginLeft: 'auto',
+    marginRight: 'auto',
+    color:"black",
+    alignSelf: 'flex-start',
+  },
+
+  textWhereTo: {
+    fontFamily: 'Inter',
+    fontStyle: 'normal',
+    fontSize: 25,
+    paddingTop: 30,
     marginLeft: 'auto',
     marginRight: 'auto',
     color:"black",
