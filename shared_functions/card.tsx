@@ -12,18 +12,19 @@ export function Card(trip:Trip) {
       </View>  
 
       <View style={styles.aboutTrip}>
-        <View style={styles.destination}>
-          <text>{trip.place}</text>    
+        <View>
+          <Text style={styles.destination}>{trip.place}</Text>    
         </View>  
-        <View style={styles.startDate}>
-          <text>{trip.startDate.getDate()+"-"+(trip.startDate.getMonth()+1)+"-"+ trip.startDate.getFullYear()}</text>    
+        <View>
+          <Text style={styles.startDate}>{trip.startDate.getDate()+"-"+(trip.startDate.getMonth()+1)+"-"+ trip.startDate.getFullYear()}</Text>    
         </View>
       </View>
  
       <View style={styles.aboutUser}>
         <View style={styles.profileImage}>  
         </View> 
-        <View style={styles.user}>  
+        <View >  
+          <Text style={styles.user}>{'@'+ trip.traveller}</Text>
         </View> 
       </View>
 
@@ -54,31 +55,45 @@ const styles = StyleSheet.create({
   aboutTrip: {
     width: 150,
     margin: 4,
-
   },
 
   aboutUser: {
     width: 75,
     margin: 4,
-
+    fontFamily: 'Inter',
+    fontStyle: "normal",
+    fontSize: 14,
+    lineHeight: 17,
+    color: "#EBEBEB",
   },
 
   destination: {
-
+    fontFamily: 'Inter',
+    fontStyle: "normal",
+    fontSize: 19,
+    lineHeight: 25,
+    color: "#EBEBEB",
   },
 
   startDate: {
-
+    fontFamily: 'Inter',
+    fontStyle: "normal",
+    fontSize: 12,
+    lineHeight: 17,
+    color: "#EBEBEB",
   },
 
   profileImage:{
     backgroundColor: 'red',
     width: 75,
-
   },
 
   user: {
-
+    fontFamily: 'Inter',
+    fontStyle: "normal",
+    fontSize: 11,
+    lineHeight: 16,
+    color: "#EBEBEB",
   },
 
 });

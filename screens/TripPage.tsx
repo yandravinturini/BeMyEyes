@@ -6,9 +6,9 @@ import {Trip} from '../shared_functions/trip';
 export function Trip_page(){    
 
   const trip1 = new Trip("Ana", "João","Rio de Janeiro", "2022-03-17", "2022-03-25")
-  const trip2 = new Trip("Leo", "Jimy","Nova Iorque", "2022-08-12", "2022-09-01")
+  const trip2 = new Trip("Leo", "Jimy","New York", "2022-08-12", "2022-09-01")
   const trip3 = new Trip("Isa", "Hana","Amsterdam", "2022-11-15", "2022-11-18")
-  const trip4 = new Trip("Ric", "Nuno","Copenhagem", "2022-10-25", "2022-10-27")
+  const trip4 = new Trip("Ric", "Nuno","Copenhagen", "2022-10-25", "2022-10-27")
   const trip5 = new Trip("Dan", "Elon","Porto", "2022-05-20", "2022-05-24")
 
   let pastTrips = [trip1, trip2, trip3];
@@ -29,12 +29,12 @@ export function Trip_page(){
     <View style={styles.container}>
       <View style={styles.ongoingTrips}>
         <Text style={styles.title}>Ongoing trips</Text>
-        {/* {ongoingTripsCards} */}
+        {ongoingTripsCards}
       </View>
 
       <View style={styles.pastTrips}>
         <Text style={styles.title}>Past trips</Text>
-        {/* {pastTripsCards} */}
+        {pastTripsCards}
       </View>
     </View>
   );
@@ -53,17 +53,20 @@ const styles = StyleSheet.create({
   },
 
   ongoingTrips: {
-    height: 200,
-
+    height: 20,
   },
 
   pastTrips: {
     height: 300,
-
   },
 
   title: {
-    marginBottom: 5,
+    marginBottom: 10,
+    marginTop: 30,
+    fontFamily: 'Inter',
+    fontStyle: 'normal',
+    fontSize: 24,
+    lineHeight: 29,
   }
 
 });

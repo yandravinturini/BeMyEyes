@@ -5,7 +5,7 @@ import { StyleSheet, Text, TextInput, View, Platform, TouchableOpacity, ImageBac
 export function Search({ navigation }) {
 
   function foundTrips() {
-    navigation.navigate('FoundTrips')
+    navigation.navigate('FoundTrips', {firstLoc: location,})
   }
 
   const image = { uri: "https://i.ibb.co/Xb3C84c/Component-1.png" }
