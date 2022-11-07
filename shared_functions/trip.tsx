@@ -31,6 +31,7 @@ export class Trip {
     }
 
 
+
     constructor(passenger:string, traveller:string, place:string, startDate:string, endDate:string, user_status: string){
         var sDate = new Date(startDate)
         var eDate = new Date(endDate)
