@@ -5,7 +5,7 @@ import green_arrow from '../assets/images/green_arrow.png';
 import gray_arrow from '../assets/images/gray_arrow.png';
 
 
-export function Search({ navigation }) {
+export function Search({ navigation } : {navigation: any}) {
 
   function foundTrips() {
     navigation.navigate('FoundTrips', {firstLoc: location,})
@@ -74,7 +74,7 @@ const styles = StyleSheet.create({
   },
 
   text: {
-    fontFamily: 'Inter',
+    // fontFamily: 'Inter',
     fontStyle: 'normal',
     fontSize: 32,
     marginBottom: 20,
@@ -86,7 +86,7 @@ const styles = StyleSheet.create({
   },
 
   input_location: {
-    fontFamily: 'Inter',
+    // fontFamily: 'Inter',
     fontStyle: 'normal',
     fontSize: 17,
     paddingLeft: 10,

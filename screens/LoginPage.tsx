@@ -93,7 +93,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#EBEBEB",
     alignItems: "center",
     justifyContent: "center",
-    fontFamily: 'Inter',
+    // fontFamily: 'Inter',
     fontStyle: 'normal',
   },
 

@@ -8,7 +8,7 @@ import DateTimePickerModal from "react-native-modal-datetime-picker";
 import green_arrow from '../assets/images/green_arrow.png';
 import gray_arrow from '../assets/images/gray_arrow.png';
 
-export function FoundTrips({route}){ 
+export function FoundTrips({route}: {route:any}){    
   const [counter, setCounter] = useState(0)
   const [orderAsc, setOrderAsc] = useState(1)
  // const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
@@ -297,7 +297,7 @@ const styles = StyleSheet.create({
 
 
   text: {
-    fontFamily: 'Inter',
+    // fontFamily: 'Inter',
     fontStyle: 'normal',
     fontSize: 25,
     marginBottom: 10,
@@ -319,7 +319,7 @@ const styles = StyleSheet.create({
   },
 
   text_no_dest:{
-    fontFamily: 'Inter',
+    // fontFamily: 'Inter',
     fontStyle: 'normal',
     fontSize: 18,
     marginBottom: 10,
@@ -331,7 +331,7 @@ const styles = StyleSheet.create({
   },
 
   input_location: {
-    fontFamily: 'Inter',
+    // fontFamily: 'Inter',
     fontStyle: 'normal',
     fontSize: 17,
     paddingLeft: 10,

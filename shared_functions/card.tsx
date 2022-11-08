@@ -60,7 +60,7 @@ const styles = StyleSheet.create({
   aboutUser: {
     width: 75,
     margin: 4,
-    fontFamily: 'Inter',
+    // fontFamily: 'Inter',
     fontStyle: "normal",
     fontSize: 14,
     lineHeight: 17,
@@ -68,7 +68,7 @@ const styles = StyleSheet.create({
   },
 
   destination: {
-    fontFamily: 'Inter',
+    // fontFamily: 'Inter',
     fontStyle: "normal",
     fontSize: 19,
     lineHeight: 25,
@@ -79,7 +79,7 @@ const styles = StyleSheet.create({
   },
 
   startDate: {
-    fontFamily: 'Inter',
+    // fontFamily: 'Inter',
     fontStyle: "normal",
     fontSize: 12,
     lineHeight: 17,
@@ -91,7 +91,7 @@ const styles = StyleSheet.create({
 
 
   user: {
-    fontFamily: 'Inter',
+    // fontFamily: 'Inter',
     fontStyle: "normal",
     fontSize: 11,
     lineHeight: 16,
