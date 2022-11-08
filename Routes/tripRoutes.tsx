@@ -1,37 +1,47 @@
 // navegação da página trip routes para home page
 
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { CreateNewTripScreen} from '../screens/CreateNewTripScreen';
+import { PosConfirmScreen } from '../screens/PosConfirmScreen';
+import { PreConfirmScreen } from '../screens/PreConfirmScreen';
 
 const Trip = createNativeStackNavigator();
 
 import { TripPage } from '../screens/TripPage';
-import { TabRoutes } from './tab';
 
-export function TripRoutes(){
+export function TripRoutes() {
   return (
     <Trip.Navigator>
-      <Trip.Screen 
-        name= 'MainTripPage'                //nome a ser usado para chamada da screen
+      <Trip.Screen
+        name='MainTripPage'
         options={{
-            headerShown: false          //para não aparecer o header
+          headerShown: false
         }}
-        component={TripPage}       //definir componente que vai ser renderizado
+        component={TripPage}
       />
 
-    <Trip.Screen 
-        name= 'MainTripPage'                //nome a ser usado para chamada da screen
+      <Trip.Screen
+        name='CreateNewTrip'
         options={{
-            headerShown: false          //para não aparecer o header
+          headerShown: false
         }}
-        component={TripPage}       //definir componente que vai ser renderizado
+        component={CreateNewTripScreen}
       />
 
-    <Trip.Screen 
-        name= 'MainTripPage'                //nome a ser usado para chamada da screen
+      <Trip.Screen
+        name='PreConfirmTrip'
         options={{
-            headerShown: false          //para não aparecer o header
+          headerShown: false
         }}
-        component={TripPage}       //definir componente que vai ser renderizado
+        component={PreConfirmScreen}
+      />
+
+      <Trip.Screen
+        name='PosConfirmTrip'
+        options={{
+          headerShown: false
+        }}
+        component={PosConfirmScreen}
       />
 
     </Trip.Navigator>

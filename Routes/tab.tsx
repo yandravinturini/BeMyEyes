@@ -13,6 +13,7 @@ import { Ionicons } from '@expo/vector-icons';
 import React, * as react from 'react';
 import { SearchRoutes } from './searchtrips';
 import { ChatRoutes } from './chat';
+import { TripRoutes } from './tripRoutes';
 
 export function TabRoutes() {
   return (
@@ -65,7 +66,7 @@ export function TabRoutes() {
               name={focused ? "airplane" : "airplane-outline"}
               size={35} color="white" />,
         }}
-        component={PreConfirmScreen}
+        component={TripRoutes}
       />
       <Tab.Screen
         name='Chat'

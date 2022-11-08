@@ -4,7 +4,7 @@ import { StyleSheet, Text, TextInput, ScrollView, View, Platform, TouchableOpaci
 
 import {Trip} from '../shared_functions/trip';
 import {Card} from '../shared_functions/card'
-import DateTimePickerModal from "react-native-modal-datetime-picker";
+// import DateTimePickerModal from "react-native-modal-datetime-picker";
 import green_arrow from '../assets/images/green_arrow.png';
 import gray_arrow from '../assets/images/gray_arrow.png';
 
@@ -270,7 +270,7 @@ const styles = StyleSheet.create({
   },
 
   textButton: {
-    fontFamily: 'Inter',
+    // fontFamily: 'Inter',
     alignSelf: 'center',
     fontStyle: 'normal',
     color: "#EBEBEB",
@@ -283,7 +283,7 @@ const styles = StyleSheet.create({
   },
 
   textButtonSelected: {
-    fontFamily: 'Inter',
+    // fontFamily: 'Inter',
     alignSelf: 'center',
     fontStyle: 'normal',
     color: '#1D5F98',
@@ -309,7 +309,7 @@ const styles = StyleSheet.create({
   },
 
   textWhereTo: {
-    fontFamily: 'Inter',
+    // fontFamily: 'Inter',
     fontStyle: 'normal',
     fontSize: 25,
     paddingTop: 30,
