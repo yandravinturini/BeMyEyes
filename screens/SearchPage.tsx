@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import { MaterialIcons } from '@expo/vector-icons';
-import { StyleSheet, Text, TextInput, View, Platform, TouchableOpacity, ImageBackground } from 'react-native';
+import { StyleSheet, Text, TextInput, Image, View, Platform, TouchableOpacity, ImageBackground } from 'react-native';
+import green_arrow from '../assets/images/green_arrow.png';
+import gray_arrow from '../assets/images/gray_arrow.png';
+
 
 export function Search({ navigation }) {
 
@@ -9,6 +12,10 @@ export function Search({ navigation }) {
   }
 
   const image = { uri: "https://i.ibb.co/Xb3C84c/Component-1.png" }
+ // const green_arrow = {uri: "https://i.ibb.co/DwMcW7b/green-arrow.png"}
+ // const gray_arrow = {uri: "https://i.ibb.co/Tw0Hpsg/gray-arrow.png"}
+
+
   const [location, setLocation] = useState("");
   const checkLocation = () => {
     //Check for the Location TextInput
@@ -18,12 +25,19 @@ export function Search({ navigation }) {
     return 0;
   };
 
-  const checkColor = () => {
+  const checkImage = () => {
     if (!location.trim()) {
-      return "#EBEBEB";
+      return gray_arrow;
     }
-    return "#88B83B";
+    return green_arrow;
   }
+
+  // const checkColor = () => {
+  //   if (!location.trim()) {
+  //     return "#EBEBEB";
+  //   }
+  //   return "#88B83B";
+  // }
 
   return (
     <View style={styles.container}>
@@ -31,23 +45,20 @@ export function Search({ navigation }) {
         source={image}
         style={styles.backgroundStyle}>
         <Text style={styles.text}>Where to?</Text>
-        <View style={{ flexDirection: 'row' }}>
+        <View style={{ flexDirection: 'row' }}> 
           <TextInput
             style={styles.input_location}
             placeholder="Lisbon"
             placeholderTextColor="#EBEBEB"
-            onChangeText={(location) => setLocation(location)}>
-          </TextInput>
+            onChangeText={(location) => setLocation(location)}
+          />
           <TouchableOpacity style={styles.button}
             disabled={checkLocation() ? true : false}
             onPress={foundTrips}
           >
-            <svg width="27" height="25" viewBox="0 0 27 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M14.125 1L25.375 12.25L14.125 23.5M23.8125 12.25H1" stroke={checkColor()} stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-            </svg>
-            
+            <Image style={styles.arrowStyle} source={checkImage()}></Image>
           </TouchableOpacity>
-        </View>
+        </View> 
       </ImageBackground>
     </View>
   );
@@ -106,6 +117,11 @@ const styles = StyleSheet.create({
     width: "100%",
     height: "100%",
     alignSelf: 'center',
+  },
+
+  arrowStyle:{
+    width: 27,
+    height: 25,
   },
 
   backgroundStyle: {
