@@ -19,7 +19,7 @@ export function ChatList({ navigation }: { navigation: any }) {
                         <Image source={userImage1} />
                     </View>
                     <View style={styles.name}>
-                        <Text style={{ fontSize: 18, }}>@Joao</Text>
+                        <Text style={{ fontSize: 18, }}>@John</Text>
                     </View>
                     <View style={styles.location}>
                         <Text style={{ fontSize: 18, color: '#A17C6B' }}>Cairo</Text>
