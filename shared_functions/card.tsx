@@ -123,7 +123,6 @@ const styles = StyleSheet.create({
   partner: {
     padding:2,
     height: 16,
-
   },
 
 });

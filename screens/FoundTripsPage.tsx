@@ -131,21 +131,25 @@ export function FoundTrips({route}: {route:any}){
   return (
       <View style={styles.container}>
         <ScrollView>
-       <Text style={styles.textWhereTo}>Where to?</Text>
-          <View style={{ flexDirection: 'row', alignItems:'center'}}>
-             <TextInput
-               style={styles.input_location}
-               placeholder={choosePlaceholder()}
-               placeholderTextColor="black"
-               onChangeText={(location2) => setLocation2(location2)}
-             />
-              <TouchableOpacity style={styles.button}
-              disabled={checkLocation() ? true : false}
-               onPress={onPressFunction}>
-               <Image style={styles.arrowStyle} source={checkImage()}></Image>              
-             </TouchableOpacity>
-           </View> 
-           <View style={{ flexDirection: 'row', alignItems:'center', marginTop: 30 }}>
+          <View style={styles.containerTop}>
+            <View style={styles.containerWhereTo}>
+              <Text style={styles.textWhereTo}>Where to?</Text>
+            </View>
+            <View style={styles.containerSearch}>
+                <TextInput
+                  style={styles.input_location}
+                  placeholder={choosePlaceholder()}
+                  placeholderTextColor="black"
+                  onChangeText={(location2) => setLocation2(location2)}
+                />
+                  <TouchableOpacity style={styles.button}
+                  disabled={checkLocation() ? true : false}
+                  onPress={onPressFunction}>
+                  <Image style={styles.arrowStyle} source={checkImage()}></Image>              
+                </TouchableOpacity>
+            </View> 
+          </View>
+          <View style={styles.containerFilters}>
               <View style={styles.filters}>
                <Text style={styles.text}>Filters</Text>
               </View>
@@ -160,9 +164,11 @@ export function FoundTrips({route}: {route:any}){
                  </TouchableOpacity>
               </View>
           </View>
-          <View style={styles.container3}>{filterLocation()}</View>
-          </ScrollView>
-        </View> 
+          <View style={styles.containerCards}>
+            {filterLocation()}
+          </View>
+        </ScrollView>
+      </View> 
    );
 }
 
@@ -172,13 +178,35 @@ const styles = StyleSheet.create({
     paddingTop: Platform.OS === 'android'? /* StatusBar.currentHeight */ 20 : 0,
     backgroundColor: "#EBEBEB",
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'flex-start',
     width: '100%',
     paddingLeft: 0,
   },
 
-  container1: {
+  containerTop:{
     flex: 1,
+    backgroundColor: "#EBEBEB",
+    alignItems: 'center',
+    justifyContent: 'flex-start',
+    width: '100%',
+    height: '30%',
+    paddingLeft: 0,
+  },
+
+  containerWhereTo:{
+    flex: 1,
+    paddingTop: Platform.OS === 'android'? /* StatusBar.currentHeight */ 20 : 0,
+    backgroundColor: "#EBEBEB",
+    alignItems: 'center',
+    justifyContent: 'flex-start',
+    width: '100%',
+    height: '30%',
+    paddingLeft: 0,
+  },
+
+  containerSearch: {
+    flex: 2,
+    flexDirection: 'row',
     flexGrow: 0,  /* do not grow   - initial value: 0 */
     flexShrink: 0,  /* do not shrink - initial value: 1 */
     flexBasis: 90,
@@ -188,6 +216,13 @@ const styles = StyleSheet.create({
     marginBottom: 30, 
     marginTop: 0,
     backgroundColor: "#EBEBEB",
+    height: '30%',
+  },
+
+  containerFilters: {
+    flexDirection: 'row', 
+    alignItems:'center', 
+    marginTop: 30,
   },
 
   // container2: {
@@ -205,15 +240,15 @@ const styles = StyleSheet.create({
   //   marginRight: 'auto',
   // },
 
-  container3: {
+  containerCards: {
     backgroundColor: "#EBEBEB",
     flex: 3,
-    alignItems: 'center',
-    justifyContent: 'center',
-    width: '100%',
+ //   alignItems: 'center',
+ //   justifyContent: 'center',
+    height: '50%',
     paddingLeft: 0,
     marginTop: 20,
-    height: 700,
+    position: 'relative',
   },
 
 
