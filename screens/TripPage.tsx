@@ -1,8 +1,8 @@
-import { StyleSheet, Text, View, Button, ScrollView, Platform } from 'react-native';
+import { StyleSheet, Text, View, Button, ScrollView, Platform, Pressable } from 'react-native';
 import { Card } from '../shared_functions/card';
 import { Trip } from '../shared_functions/trip';
 
-export function TripPage({navigation} : {navigation: any}) {
+export function TripPage({ navigation }: { navigation: any }) {
 
   const trip1 = new Trip("Ana", "João", "Rio de Janeiro", "2022-03-17", "2022-03-25", "passageiro")
   const trip2 = new Trip("Leo", "Jimy", "New York", "2022-08-12", "2022-09-01", "passageiro")
@@ -20,6 +20,10 @@ export function TripPage({navigation} : {navigation: any}) {
     navigation.navigate('CreateNewTrip');
   }
 
+  function DetailsPage() {
+    navigation.navigate('PosConfirmTrip');
+  }
+
   for (let i = 0; i < pastTrips.length; i++) {
     pastTripsCards.push(Card(pastTrips[i]))
   }
@@ -28,18 +32,27 @@ export function TripPage({navigation} : {navigation: any}) {
     ongoingTripsCards.push(Card(ongoingTrips[i]))
   }
 
+  ongoingTripsCards.map((item, index) => (<View key={index.toString()}>{item}</View>))
+  pastTripsCards.map((item, index) => (<View key={index.toString()}>{item}</View>))
+
   return (
     <View style={styles.ScrollView}>
-      <Button title="criar conteúdo" onPress={CreateNewTrip } />
-      <View style={styles.ongoingTrips}>
-        <Text style={styles.title}>Ongoing trips</Text>
-        {ongoingTripsCards}
-      </View>
+      <ScrollView>
+        {/* <Button title="criar conteúdo" onPress={CreateNewTrip } /> */}
+        <View>
+          <Text style={styles.title}>Ongoing trips</Text>
+          <Pressable onPress={DetailsPage}>
+            {ongoingTripsCards}
+          </Pressable>
+        </View>
 
-      <View style={styles.pastTrips}>
-        <Text style={styles.title}>Past trips</Text>
-        {pastTripsCards}
-      </View>
+        <View>
+          <Text style={styles.title}>Past trips</Text>
+          <Pressable onPress={DetailsPage}>
+            {pastTripsCards}
+          </Pressable>
+        </View>
+      </ScrollView>
     </View>
   );
 }
@@ -53,14 +66,6 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-start',
     width: '100%',
 
-  },
-
-  ongoingTrips: {
-    height: 20,
-  },
-
-  pastTrips: {
-    height: 300,
   },
 
   title: {

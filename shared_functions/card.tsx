@@ -1,36 +1,35 @@
 import React from 'react';
 import { StyleSheet, Text, View, Image, Button, TouchableOpacity } from 'react-native';
-import {Trip} from '../shared_functions/trip';
+import { Trip } from '../shared_functions/trip';
 
 
-export function Card(trip:Trip) {    
+export function Card(trip: Trip) {
 
   return (
-    <TouchableOpacity>
+    // <TouchableOpacity>
     <View style={styles.card}>
-        <View style={styles.destinationImage}> 
-          <Text>  </Text>
-        </View>  
+      <View style={styles.destinationImage}>
+        <Text>  </Text>
+      </View>
 
-        <View style={styles.aboutTrip}> 
-          <View>
-            <Text style={styles.destination}> {trip.place} </Text>
-          </View>
-          <View>
-            <Text style={styles.startDate}> {(trip.startDate).toDateString()} </Text>
-          </View>
-        </View>  
+      <View style={styles.aboutTrip}>
+        <View>
+          <Text style={styles.destination}> {trip.place} </Text>
+        </View>
+        <View>
+          <Text style={styles.startDate}> {(trip.startDate).toDateString()} </Text>
+        </View>
+      </View>
 
-        <View style={styles.aboutPartner}> 
-          <View style={styles.profileImage}>
-            <Text> </Text>
-          </View>
-          <View style={styles.partner}>         
-            <Text style={{color:'#EBEBEB', fontSize: 13}}> @{trip.traveller} </Text>
-          </View>        
-        </View>  
+      <View style={styles.aboutPartner}>
+        <View style={styles.profileImage}>
+          <Text> </Text>
+        </View>
+        <View style={styles.partner}>
+          <Text style={{ color: '#EBEBEB', fontSize: 13 }}> @{trip.traveller} </Text>
+        </View>
+      </View>
     </View>
-    </TouchableOpacity>
   )
 }
 
@@ -73,9 +72,9 @@ const styles = StyleSheet.create({
     fontSize: 19,
     lineHeight: 25,
     color: "#EBEBEB",
-    height:40,
-    padding:5,
-    textColor:'#EBEBEB',
+    height: 40,
+    padding: 5,
+    textColor: '#EBEBEB',
   },
 
   startDate: {
@@ -84,9 +83,9 @@ const styles = StyleSheet.create({
     fontSize: 12,
     lineHeight: 17,
     color: "#EBEBEB",
-    height:20,
-    padding:5,
-    textColor:'#EBEBEB', 
+    height: 20,
+    padding: 5,
+    textColor: '#EBEBEB',
   },
 
 
@@ -103,25 +102,25 @@ const styles = StyleSheet.create({
   },
 
   aboutPartner: {
-    marginLeft:'auto',
+    marginLeft: 'auto',
     marginRight: 10,
     width: 80,
     alignItems: 'center',
     justifyContent: 'center',
-    color:'#EBEBEB',
+    color: '#EBEBEB',
   },
 
 
-  profileImage:{
+  profileImage: {
     backgroundColor: 'white',
     borderRadius: 30,
     height: 50,
     width: 50,
-    padding:5,
+    padding: 5,
   },
 
   partner: {
-    padding:2,
+    padding: 2,
     height: 16,
   },
 
