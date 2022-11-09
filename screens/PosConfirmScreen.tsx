@@ -1,7 +1,5 @@
 import { Ionicons } from '@expo/vector-icons';
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Button, ScrollView, Platform, Image } from 'react-native';
-import { Card } from '../shared_functions/card'
+import { StyleSheet, Text, View, Image, Pressable } from 'react-native';
 import { Trip } from '../shared_functions/trip';
 import Cairo from '../assets/images/Cairo.png';
 import UserImage from '../assets/images/chatUser1.png';
@@ -9,14 +7,18 @@ import ChatIcon from '../assets/images/ícones/ChatIconGreen.png';
 import GalleryIcon from '../assets/images/ícones/GalleryIconGreen.png';
 
 
-export function PosConfirmScreen() {
+export function PosConfirmScreen({navigation}: {navigation:any}) {
 
     const trip1 = new Trip("giulia", "isabela", "Cairo", "2022-03-17", "2022-03-25", "passageiro");
+
+    function goToChat() {
+        navigation.navigate('ChatPage');
+    }
 
     return (
         <View style={styles.conteiner}>
             <View style={styles.headingContainer}>
-                <View style={{flexDirection: 'row', width: '85%'}}>
+                <View style={{ flexDirection: 'row', width: '85%' }}>
                     <View style={styles.headingDestiny}>
                         <Text style={styles.textDestiny}>{trip1.place}</Text>
                     </View>
@@ -44,7 +46,9 @@ export function PosConfirmScreen() {
                 <Text style={styles.textUserName}>@{trip1.traveller}</Text>
             </View>
             <View style={styles.buttonsContainer}>
-                <Image source={ChatIcon} style={styles.bottomIcons}></Image>
+                <Pressable onPress={goToChat}>
+                    <Image source={ChatIcon} style={styles.bottomIcons}></Image>
+                </Pressable>
                 <Image source={GalleryIcon} style={styles.bottomIcons}></Image>
             </View>
 
@@ -90,7 +94,7 @@ const styles = StyleSheet.create({
         fontSize: 14,
         fontWeight: '400',
         paddingTop: 7,
-        paddingLeft: 5, 
+        paddingLeft: 5,
     },
     moreOptionsICon: {
         fontSize: 35,

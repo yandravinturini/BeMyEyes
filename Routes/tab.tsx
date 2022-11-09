@@ -4,13 +4,8 @@ import { StyleSheet, Image } from 'react-native';
 const Tab = createBottomTabNavigator();
 
 import { HomePage } from '../screens/HomePage';
-import { TripPage } from '../screens/TripPage';
-import { PreConfirmScreen } from '../screens/PreConfirmScreen';
-import { ChatPage } from '../screens/ChatPage';
 import { Profile } from '../screens/ProfilePage';
-import { Search } from '../screens/SearchPage';
 import { Ionicons } from '@expo/vector-icons';
-import React, * as react from 'react';
 import { SearchRoutes } from './searchtrips';
 import { ChatRoutes } from './chat';
 import { TripRoutes } from './tripRoutes';
@@ -24,15 +19,6 @@ export function TabRoutes() {
         tabBarInactiveTintColor: "#fff",
         tabBarStyle: { backgroundColor: "#1D5F98", paddingTop: 10, paddingBottom: 8, height: 70, borderTopColor: 'transparent' },
         tabBarLabelStyle: { marginTop: 3 },
-        headerStyle: { borderBottomColor: 'transparent', backgroundColor: '#EBEBEB' },
-        headerTitle: '',
-        headerLeftContainerStyle: {marginTop:10, marginBottom: 10},
-        headerLeft: () => (
-          <Image
-          style={styles.logo}
-          source={require('../assets/images/logo.png')}
-          />
-        ),
       }}>
       <Tab.Screen
         name='Homepage'
@@ -43,6 +29,15 @@ export function TabRoutes() {
             <Ionicons
               name={focused ? "home" : "home-outline"}
               size={35} color="white" />,
+          headerLeft: () => (
+            <Image
+              style={styles.logo}
+              source={require('../assets/images/logo.png')}
+            />
+          ),
+          headerStyle: { backgroundColor: '#EBEBEB' },
+          headerTitle: '',
+          headerShadowVisible: false,
         }}
 
       />
@@ -54,6 +49,15 @@ export function TabRoutes() {
             <Ionicons
               name={focused ? "search" : "search-outline"}
               size={35} color="white" />,
+          headerLeft: () => (
+            <Image
+              style={styles.logo}
+              source={require('../assets/images/logo.png')}
+            />
+          ),
+          headerStyle: { backgroundColor: '#EBEBEB' },
+          headerTitle: '',
+          headerShadowVisible: false,
         }}
         component={SearchRoutes}
       />
@@ -61,6 +65,7 @@ export function TabRoutes() {
         name='Trip'
         options={{
           tabBarLabel: 'Trip',
+          headerShown: false,
           tabBarIcon: ({ focused }) =>
             <Ionicons
               name={focused ? "airplane" : "airplane-outline"}
@@ -76,6 +81,15 @@ export function TabRoutes() {
             <Ionicons
               name={focused ? "chatbubble" : "chatbubble-outline"}
               size={35} color="white" />,
+          headerLeft: () => (
+            <Image
+              style={styles.logo}
+              source={require('../assets/images/logo.png')}
+            />
+          ),
+          headerStyle: { backgroundColor: '#EBEBEB' },
+          headerTitle: '',
+          headerShadowVisible: false,
         }}
         component={ChatRoutes}
       />
@@ -83,11 +97,20 @@ export function TabRoutes() {
         name='Profile'
         options={{
           tabBarLabel: 'Profile',
-          headerRight: () => (<Ionicons name="ellipsis-horizontal" style={styles.moreOptionsICon}/>),
+          headerRight: () => (<Ionicons name="ellipsis-horizontal" style={styles.moreOptionsIcon} />),
           tabBarIcon: ({ focused }) =>
             <Ionicons
               name={focused ? "person" : "person-outline"}
               size={35} color="white" />,
+          headerLeft: () => (
+            <Image
+              style={styles.logo}
+              source={require('../assets/images/logo.png')}
+            />
+          ),
+          headerStyle: { backgroundColor: '#EBEBEB' },
+          headerTitle: '',
+          headerShadowVisible: false,
         }}
         component={Profile}
       />
@@ -96,15 +119,15 @@ export function TabRoutes() {
 }
 
 const styles = StyleSheet.create({
-  moreOptionsICon: {
+  moreOptionsIcon: {
     fontSize: 35,
-    marginRight:30,
+    marginRight: 30,
     color: "#1D5F98",
 
   },
 
-  logo:{
-    marginLeft: 10,
+  logo: {
+    marginLeft: 16,
     resizeMode: "center",
     width: 200,
     height: 50,
