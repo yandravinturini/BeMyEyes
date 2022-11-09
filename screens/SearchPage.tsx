@@ -4,8 +4,7 @@ import { StyleSheet, Text, TextInput, Image, View, Platform, TouchableOpacity, I
 import green_arrow from '../assets/images/green_arrow.png';
 import gray_arrow from '../assets/images/gray_arrow.png';
 
-
-export function Search({ navigation } : {navigation: any}) {
+export function Search({ navigation }: { navigation: any }) {
 
   function foundTrips() {
     navigation.navigate('FoundTrips', {firstLoc: location,})

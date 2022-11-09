@@ -1,9 +1,60 @@
-import { Dimensions } from 'react-native';
-import { LogBox, StyleSheet, Text, View, Image, Platform, StatusBar } from 'react-native';
+import { useRef } from 'react';
+import { Dimensions, Settings, StyleSheet, Text, View, Image, Platform, StatusBar, Button } from 'react-native';
+import { ParallaxImage } from 'react-native-snap-carousel';
+import Carousel from 'react-native-snap-carousel';
+import data from '../shared_functions/carouselData'
 import MapView from 'react-native-maps';
 
 const { width, height} = Dimensions.get("window");
 
+/* // {{parallaxProps}: {parallaxProps:any}}
+function CarouselItem({item, index}){
+  return(
+    <View style={styles.carouselItem}>
+      <ParallaxImage
+      source={{uri: item.sourceImage}}
+      containerStyle={styles.container}
+      style={styles.image}
+      // {...parallaxProps}
+      />
+
+      <Text style={styles.titles} numberOfLines={2}>
+        {item.title}
+      </Text>
+
+      <Text style={styles.titles} numberOfLines={2}>
+        {item.date}
+      </Text>
+
+      <Image 
+      source={{uri:item.sourcePerson}}
+      style={styles.profilePic}/>
+
+      <Text style={styles.titles} numberOfLines={2}>
+        {item.person}
+      </Text>
+    </View>
+  );
+}
+
+function Slider({data}) {
+  console.log(data);
+  
+  const settings ={
+    sliderWidth: width,
+    sliderHeight: height,
+    itemWidth: width,
+    data: data,
+    renderItem: CarouselItem,
+    hasParallaxImages: true,
+  };
+  return(
+    <View style={styles.container}>
+      <Carousel {...Settings}/>
+    </View>
+  );
+}
+ */
 export function HomePage( ) {
   return (
     <View style={styles.container}>
@@ -47,7 +98,23 @@ const styles = StyleSheet.create({
     padding: 20,
     fontSize: 20,
   },
+
+/*   carouselItem:{
+    width: '100%',
+    height: '20%',
+  },
+
+  image: {
+    ...StyleSheet.absoluteFillObject,
+    resizeMode: 'contain',
+  },
   
+  profilePic: {
+    width: 20,
+    height: 20,
+    resizeMode: 'contain',
+  }, */
+
   map: {
     width: width,
     height: height

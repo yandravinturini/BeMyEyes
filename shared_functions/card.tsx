@@ -6,7 +6,7 @@ import {Trip} from '../shared_functions/trip';
 export function Card(trip:Trip) {    
 
   return (
-    <TouchableOpacity >
+    <TouchableOpacity>
     <View style={styles.card}>
         <View style={styles.destinationImage}> 
           <Text>  </Text>
