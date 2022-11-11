@@ -10,7 +10,6 @@ export function Search({ navigation }: { navigation: any }) {
     navigation.navigate('FoundTrips', {firstLoc: location,})
   }
 
-  const image = { uri: "https://i.ibb.co/Xb3C84c/Component-1.png" }
  // const green_arrow = {uri: "https://i.ibb.co/DwMcW7b/green-arrow.png"}
  // const gray_arrow = {uri: "https://i.ibb.co/Tw0Hpsg/gray-arrow.png"}
 
@@ -41,7 +40,7 @@ export function Search({ navigation }: { navigation: any }) {
   return (
     <View style={styles.container}>
       <ImageBackground
-        source={image}
+        source={require('../assets/images/Component1.png')}
         style={styles.backgroundStyle}>
         <Text style={styles.text}>Where to?</Text>
         <View style={{ flexDirection: 'row' }}> 
@@ -67,7 +66,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     paddingTop: Platform.OS === 'android' ? /* StatusBar.currentHeight */ 20 : 0,
-    bbackgroundColor: "#EBEBEB",
+    backgroundColor: "#EBEBEB",
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -139,6 +138,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     borderTopRightRadius: 8,
     borderBottomRightRadius: 8,
-    paddingRight: 5,
+    paddingRight: 10,
   }
 });
