@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "project-test-full",
-    "slug": "project-test-full",
+    "name": "BeMyEyes",
+    "slug": "BeMyEyes",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",

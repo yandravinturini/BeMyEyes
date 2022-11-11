@@ -33,14 +33,14 @@ export function PosConfirmScreen({navigation}: {navigation:any}) {
 
             </View>
             <View style={styles.coverImageContainer}>
-                <Image source={{uri: trip1.imageIcon}} style={{ width: '100%', height: '100%' }}></Image>
+                <Image source={{uri: trip1.imageIcon}} style={{ width: '100%', height: '100%' }}/>
             </View>
             <View style={styles.travellingWithContainer}>
                 <Ionicons name="pin" size={25} color="#A17C6B" style={styles.pinIcon} />
                 <Text style={styles.textTravellingWith}>You're travelling with</Text>
             </View>
             <View style={styles.userInformationContainer}>
-                <Image source={{uri: trip1.profileIcon}} style={styles.userImage}></Image>
+                <Image source={{uri: trip1.profileIcon}} style={styles.userImage}/>
                 <Text style={styles.textUserName}>@{trip1.traveller}</Text>
             </View>
             <View style={styles.buttonsContainer}>

@@ -7,7 +7,7 @@ import UserImage from '../assets/images/chatUser1.png';
 
 export function PreConfirmScreen(){ 
 
-    const trip1 = new Trip("giulia", "isabela", "Cairo", "2022-03-17", "2022-03-25", "passageiro");
+    const trip1 = new Trip("", "Joana", "Cairo", "2022-05-03", "2022-05-10", "passageiro", "https://images.unsplash.com/photo-1562842523-6d492ddc3e25?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80", "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80");
 
     return (
         <View style={styles.conteiner}>
@@ -29,14 +29,14 @@ export function PreConfirmScreen(){
 
             </View>
             <View style={styles.coverImageContainer}>
-                <Image source={Cairo} style={{ width: '100%', height: '100%' }}></Image>
+                <Image source={{uri: trip1.imageIcon}} style={{ width: '100%', height: '100%' }}/>
             </View>
             <View style={styles.travellingWithContainer}>
                 <Ionicons name="pin" size={25} color="#A17C6B" style={styles.pinIcon} />
                 <Text style={styles.textTravellingWith}>You're travelling with</Text>
             </View>
             <View style={styles.userInformationContainer}>
-                <Image source={UserImage} style={styles.userImage}></Image>
+            <Image source={{uri: trip1.profileIcon}} style={styles.userImage}/>
                 <Text style={styles.textUserName}>@{trip1.traveller}</Text>
             </View>
             <View style={styles.intimacyContainer}>
