@@ -1,15 +1,13 @@
 import { Ionicons } from '@expo/vector-icons';
 import { StyleSheet, Text, View, Image, Pressable } from 'react-native';
 import { Trip } from '../shared_functions/trip';
-import Cairo from '../assets/images/Cairo.png';
-import UserImage from '../assets/images/chatUser1.png';
 import ChatIcon from '../assets/images/ícones/ChatIconGreen.png';
 import GalleryIcon from '../assets/images/ícones/GalleryIconGreen.png';
 
 
 export function PosConfirmScreen({navigation}: {navigation:any}) {
 
-    const trip1 = new Trip("giulia", "isabela", "Cairo", "2022-03-17", "2022-03-25", "passageiro");
+    const trip1 = new Trip("Dan", "Ellon", "Porto", "2022-05-20", "2022-05-24", "passageiro", "https://images.unsplash.com/photo-1569959220744-ff553533f492?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1164&q=80", "https://images.unsplash.com/photo-1564564321837-a57b7070ac4f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1176&q=80");
 
     function goToChat() {
         navigation.navigate('ChatPage');
@@ -35,14 +33,14 @@ export function PosConfirmScreen({navigation}: {navigation:any}) {
 
             </View>
             <View style={styles.coverImageContainer}>
-                <Image source={Cairo} style={{ width: '100%', height: '100%' }}></Image>
+                <Image source={{uri: trip1.imageIcon}} style={{ width: '100%', height: '100%' }}></Image>
             </View>
             <View style={styles.travellingWithContainer}>
                 <Ionicons name="pin" size={25} color="#A17C6B" style={styles.pinIcon} />
                 <Text style={styles.textTravellingWith}>You're travelling with</Text>
             </View>
             <View style={styles.userInformationContainer}>
-                <Image source={UserImage} style={styles.userImage}></Image>
+                <Image source={{uri: trip1.profileIcon}} style={styles.userImage}></Image>
                 <Text style={styles.textUserName}>@{trip1.traveller}</Text>
             </View>
             <View style={styles.buttonsContainer}>
@@ -137,6 +135,7 @@ const styles = StyleSheet.create({
         // fontFamily: 'Inter',
     },
     userImage: {
+        borderRadius: 50,
         width: 65,
         height: 65,
         marginTop: 'auto',
