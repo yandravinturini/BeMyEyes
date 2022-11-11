@@ -28,11 +28,17 @@ export class Trip {
     private _user_status;
     public get user_status() {
         return this._user_status;
+
+    }
+    private _profileIcon;
+    public get profileIcon() {
+        return this._profileIcon;
     }
 
+    
 
 
-    constructor(passenger:string, traveller:string, place:string, startDate:string, endDate:string, user_status: string){
+    constructor(passenger:string, traveller:string, place:string, startDate:string, endDate:string, user_status: string, imageIcon:string, profileIcon:string){
         var sDate = new Date(startDate)
         var eDate = new Date(endDate)
         this._passenger = passenger;
@@ -41,7 +47,8 @@ export class Trip {
         this._startDate = sDate;
         this._endDate = eDate;
         this._user_status = user_status;
-        this._imageIcon = this.set_image_icon(place);
+        this._imageIcon = imageIcon;
+        this._profileIcon = profileIcon;
 
     }
 

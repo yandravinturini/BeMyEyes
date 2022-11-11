@@ -1,16 +1,15 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image, Button, TouchableOpacity } from 'react-native';
+import {  Dimensions,StyleSheet, Text, View, Image, Button, TouchableOpacity } from 'react-native';
 import { Trip } from '../shared_functions/trip';
+
+const { width, height } = Dimensions.get("window");
 
 
 export function Card(trip: Trip) {
 
   return (
-    // <TouchableOpacity>
     <View style={styles.card}>
-      <View style={styles.destinationImage}>
-        <Text>  </Text>
-      </View>
+      <Image source={{uri: trip.imageIcon} } style={styles.destinationImage}/>
 
       <View style={styles.aboutTrip}>
         <View>
@@ -22,15 +21,13 @@ export function Card(trip: Trip) {
       </View>
 
       <View style={styles.aboutPartner}>
-        <View style={styles.profileImage}>
-          <Text> </Text>
-        </View>
-        <View style={styles.partner}>
-          <Text style={{ color: '#EBEBEB', fontSize: 13 }}> @{trip.traveller} </Text>
+        <Image source={{uri: trip.profileIcon}} style={styles.profileImage}/>
+        <View >
+          <Text style={styles.partner}> @{trip.traveller} </Text>
         </View>
       </View>
     </View>
-  )
+  );
 }
 
 const styles = StyleSheet.create({
@@ -42,64 +39,42 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-start',
     alignItems: 'center',
     marginBottom: 10,
+    width: width,
   },
 
   destinationImage: {
-    backgroundColor: 'gray',
     height: 90,
     width: 80,
-    marginRight: 5,
   },
 
   aboutTrip: {
-    width: 150,
-    margin: 4,
+    marginLeft: 5,
   },
 
   aboutUser: {
     width: 75,
-    margin: 4,
-    // fontFamily: 'Inter',
     fontStyle: "normal",
     fontSize: 14,
-    lineHeight: 17,
     color: "#EBEBEB",
   },
 
   destination: {
-    // fontFamily: 'Inter',
     fontStyle: "normal",
     fontSize: 19,
-    lineHeight: 25,
     color: "#EBEBEB",
     height: 40,
-    padding: 5,
     textColor: '#EBEBEB',
   },
 
   startDate: {
-    // fontFamily: 'Inter',
     fontStyle: "normal",
     fontSize: 12,
-    lineHeight: 17,
     color: "#EBEBEB",
-    height: 20,
     padding: 5,
     textColor: '#EBEBEB',
   },
 
 
-  user: {
-    // fontFamily: 'Inter',
-    fontStyle: "normal",
-    fontSize: 11,
-    lineHeight: 16,
-    color: "#EBEBEB",
-    height: 80,
-    width: "50%",
-    marginRight: 5,
-
-  },
 
   aboutPartner: {
     marginLeft: 'auto',
@@ -112,7 +87,6 @@ const styles = StyleSheet.create({
 
 
   profileImage: {
-    backgroundColor: 'white',
     borderRadius: 30,
     height: 50,
     width: 50,
@@ -120,8 +94,9 @@ const styles = StyleSheet.create({
   },
 
   partner: {
+    textAlign: "right",
     padding: 2,
-    height: 16,
+    color: "#EBEBEB",
   },
 
 });
