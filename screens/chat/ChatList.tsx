@@ -1,9 +1,9 @@
 // import {  } from 'expo-status-bar';
 import { StyleSheet, Text, View, Button, Platform, StatusBar, Pressable, Image } from 'react-native';
-import userImage1 from '../assets/images/chatUser1.png';
-import userImage2 from '../assets/images/chatUser2.png';
-import userImage3 from '../assets/images/chatUser3.png';
-import userImage4 from '../assets/images/chatUser4.png';
+import userImage1 from '../../assets/images/chatUser1.png';
+import userImage2 from '../../assets/images/chatUser2.png';
+import userImage3 from '../../assets/images/chatUser3.png';
+import userImage4 from '../../assets/images/chatUser4.png';
 
 export function ChatList({ navigation }: { navigation: any }) {
     function openChat() {

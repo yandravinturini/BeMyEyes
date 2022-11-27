@@ -77,19 +77,11 @@ export function TabRoutes() {
         name='Chat'
         options={{
           tabBarLabel: 'Chat',
+          headerShown: false,
           tabBarIcon: ({ focused }) =>
             <Ionicons
               name={focused ? "chatbubble" : "chatbubble-outline"}
               size={35} color="white" />,
-          headerLeft: () => (
-            <Image
-              style={styles.logo}
-              source={require('../assets/images/logo.png')}
-            />
-          ),
-          headerStyle: { backgroundColor: '#EBEBEB' },
-          headerTitle: '',
-          headerShadowVisible: false,
         }}
         component={ChatRoutes}
       />
