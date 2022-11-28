@@ -1,14 +1,22 @@
 import { Ionicons } from '@expo/vector-icons';
-import { StyleSheet, Text, View, Image } from 'react-native';
-import { Trip } from '../shared_functions/trip';
-import Cairo from '../assets/images/Cairo.png';
-import UserImage from '../assets/images/chatUser1.png';
+import React, { useEffect, useState} from "react";
+import { StyleSheet, Text, View, Image, Pressable, TouchableOpacity } from 'react-native';
+import { LogBox } from 'react-native';
 
 
-export function PreConfirmScreen(){ 
+LogBox.ignoreLogs([
+    'Non-serializable values were found in the navigation state',
+  ]);
 
-    const trip1 = new Trip("", "Joana", "Cairo", "2022-05-03", "2022-05-10", "passageiro", "https://images.unsplash.com/photo-1562842523-6d492ddc3e25?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80", "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80");
+export function PreConfirmScreen({route, navigation}){ 
 
+    const trip1 = route.params.trip
+    const destiny = trip1.place
+
+    function JoinedTrip(trip: any){
+        navigation.navigate('PosConfirmTrip', {trip: trip,});
+    }
+    
     return (
         <View style={styles.conteiner}>
             <View style={styles.headingContainer}>
@@ -46,9 +54,10 @@ export function PreConfirmScreen(){
                 <Text style={styles.textIntimacy}>{'\u2022'} Videos</Text>
             </View>
             <View style={styles.joinButton}>
-                <Text style={styles.buttonText}>Join</Text>
+                <Pressable onPress={() => JoinedTrip(trip1)}>
+                   <Text style={styles.buttonText}>Join</Text>
+                </Pressable>
             </View>
-
         </View>
 
     )
@@ -180,6 +189,24 @@ const styles = StyleSheet.create({
         height: 50,
         borderRadius: 26,
       },
+      
+    joinButtonWhite: {
+        backgroundColor: '#EBEBEB',
+        alignItems: 'center',
+        justifyContent: 'center',
+        marginLeft: 'auto',
+        marginRight: 'auto',
+        marginTop: 10,
+        width: 200,
+        height: 50,
+        borderRadius: 26,
+        borderStyle: "solid",
+        borderWidth: 3,
+        borderBottomColor: "white",
+        borderTopColor: "white",
+        borderRightColor: "white",
+        borderLeftColor: "white",
+      },
 
       buttonText: {
         // fontFamily: 'Inter',
@@ -190,3 +217,4 @@ const styles = StyleSheet.create({
 
 
 });
+

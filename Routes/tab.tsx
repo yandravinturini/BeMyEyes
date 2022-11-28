@@ -9,6 +9,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { SearchRoutes } from './searchtrips';
 import { ChatRoutes } from './chat';
 import { TripRoutes } from './tripRoutes';
+import { HomeRoutes } from './homeroutes';
 
 export function TabRoutes() {
   return (
@@ -22,42 +23,25 @@ export function TabRoutes() {
       }}>
       <Tab.Screen
         name='Homepage'
-        component={HomePage}
         options={{
           tabBarLabel: 'Home',
+          headerShown: false,
           tabBarIcon: ({ focused }) =>
             <Ionicons
               name={focused ? "home" : "home-outline"}
               size={35} color="white" />,
-          headerLeft: () => (
-            <Image
-              style={styles.logo}
-              source={require('../assets/images/logo.png')}
-            />
-          ),
-          headerStyle: { backgroundColor: '#EBEBEB' },
-          headerTitle: '',
-          headerShadowVisible: false,
         }}
-
+        component={HomeRoutes}
       />
       <Tab.Screen
         name='Search'
         options={{
           tabBarLabel: 'Search',
+          headerShown: false,
           tabBarIcon: ({ focused }) =>
             <Ionicons
               name={focused ? "search" : "search-outline"}
               size={35} color="white" />,
-          headerLeft: () => (
-            <Image
-              style={styles.logo}
-              source={require('../assets/images/logo.png')}
-            />
-          ),
-          headerStyle: { backgroundColor: '#EBEBEB' },
-          headerTitle: '',
-          headerShadowVisible: false,
         }}
         component={SearchRoutes}
       />
