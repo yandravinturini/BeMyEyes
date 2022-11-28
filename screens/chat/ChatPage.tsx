@@ -1,12 +1,14 @@
 // import {  } from 'expo-status-bar';
-import { StyleSheet, Text, View, Image, TextInput } from 'react-native';
+import { StyleSheet, Text, View, Image, TextInput, TouchableOpacity } from 'react-native';
 import userImage1 from '../../assets/images/chatUser1.png';
 import { Ionicons } from '@expo/vector-icons';
 import { Octicons } from '@expo/vector-icons';
 import ChatBot from './components/chat-bot';
 import { AntDesign } from '@expo/vector-icons';
+import { useState } from 'react';
 
 export function ChatPage() {
+
   return (
     <View style={styles.container}>
       <View style={styles.headerContainer}>
@@ -17,14 +19,20 @@ export function ChatPage() {
           <Text style={styles.userName}>John</Text>
         </View>
         <View style={styles.iconContainer}>
-          <View style={styles.createCircleBorder}>
-            <Ionicons name="call-outline" size={24} style={styles.callIcon} />
-          </View>
+          <TouchableOpacity>
+            <View style={styles.createCircleBorder}>
+              <Ionicons name="call-outline" size={24} style={styles.callIcon} />
+            </View>
+          </TouchableOpacity>
         </View>
         <View style={styles.iconContainer}>
-          <View style={styles.createCircleBorder}>
-            <Octicons name="device-camera-video" size={24} style={styles.callIcon} />
-          </View>
+          <TouchableOpacity>
+            <View style={styles.createCircleBorder}>
+
+              <Octicons name="device-camera-video" size={24} style={styles.callIcon} />
+
+            </View>
+          </TouchableOpacity>
         </View>
       </View>
       <View style={{ height: '87%' }}>
@@ -33,11 +41,15 @@ export function ChatPage() {
         </View>
         <View style={{ height: '15%', justifyContent: 'center', }}>
           <View style={styles.inputContainer}>
-            <Ionicons name="camera-outline" style={styles.bottomIcons} />
+            <TouchableOpacity style={{ marginLeft: 'auto', marginRight: 'auto', }}>
+              <Ionicons name="camera-outline" style={styles.bottomIcons} />
+            </TouchableOpacity>
             <TextInput style={styles.textInput}
             // onChangeText={(location) => setLocation(location)}
             />
-            <AntDesign name="arrowright" style={styles.bottomIcons} />
+            <TouchableOpacity style={{ marginLeft: 'auto', marginRight: 'auto', }}>
+              <AntDesign name="arrowright" style={styles.bottomIcons} />
+            </TouchableOpacity>
           </View>
 
           {/* <TouchableOpacity style={styles.button} disabled={checkLocation() ? true : false}onPress={foundTrips}>
@@ -114,14 +126,13 @@ const styles = StyleSheet.create({
   },
   bottomIcons: {
     fontSize: 35,
-    marginLeft: 'auto',
-    marginRight: 'auto',
     marginTop: 'auto',
     marginBottom: 'auto',
     color: '#EBEBEB',
   },
   textInput: {
-    // backgroundColor: 'white',
+    // borderColor: 'red', 
+    // borderWidth: 2,
     fontSize: 17,
     width: '70%',
     height: 42,
