@@ -1,8 +1,10 @@
 // import {  } from 'expo-status-bar';
-import { StyleSheet, Text, View, Image } from 'react-native';
+import { StyleSheet, Text, View, Image, TextInput } from 'react-native';
 import userImage1 from '../../assets/images/chatUser1.png';
 import { Ionicons } from '@expo/vector-icons';
 import { Octicons } from '@expo/vector-icons';
+import ChatBot from './components/chat-bot';
+import { AntDesign } from '@expo/vector-icons';
 
 export function ChatPage() {
   return (
@@ -15,15 +17,35 @@ export function ChatPage() {
           <Text style={styles.userName}>John</Text>
         </View>
         <View style={styles.iconContainer}>
-          <Ionicons name="call-outline" size={24} style={styles.callIcon} />
+          <View style={styles.createCircleBorder}>
+            <Ionicons name="call-outline" size={24} style={styles.callIcon} />
+          </View>
         </View>
         <View style={styles.iconContainer}>
-          <Octicons name="device-camera-video" size={24} style={styles.callIcon} />
+          <View style={styles.createCircleBorder}>
+            <Octicons name="device-camera-video" size={24} style={styles.callIcon} />
+          </View>
         </View>
       </View>
-      <View style={{ borderColor: 'red', borderWidth: 2 }}>
-        <Text>Hello from Chat!</Text>
+      <View style={{ height: '87%' }}>
+        <View style={{ height: '85%', width: '97%', marginRight: 'auto', marginLeft: 'auto' }}>
+          <ChatBot />
+        </View>
+        <View style={{ height: '15%', justifyContent: 'center', }}>
+          <View style={styles.inputContainer}>
+            <Ionicons name="camera-outline" style={styles.bottomIcons} />
+            <TextInput style={styles.textInput}
+            // onChangeText={(location) => setLocation(location)}
+            />
+            <AntDesign name="arrowright" style={styles.bottomIcons} />
+          </View>
+
+          {/* <TouchableOpacity style={styles.button} disabled={checkLocation() ? true : false}onPress={foundTrips}>
+          <Image style={styles.arrowStyle} source={checkImage()}></Image>
+        </TouchableOpacity> */}
+        </View>
       </View>
+
     </View>
   );
 }
@@ -32,20 +54,21 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#EBEBEB",
-    borderColor: 'red',
-    borderWidth: 2,
+    // borderColor: 'red',
+    // borderWidth: 2,
   },
   headerContainer: {
-    marginVertical: 20,
+    marginTop: 20,
     height: '10%',
-    // borderColor: 'black',
-    // borderWidth: 2,
     flexDirection: 'row',
+    justifyContent: 'center',
+    // borderColor: 'red',
+    // borderWidth: 2,
   },
   image: {
     // borderColor: 'red',
     // borderWidth: 2,
-    width: '25%',
+    width: '20%',
     height: '100%',
     alignItems: 'center',
     justifyContent: 'center',
@@ -61,20 +84,46 @@ const styles = StyleSheet.create({
   },
   iconContainer: {
     // borderColor: 'red',
-    marginRight: 3,
-    width: '10%',
-    paddingHorizontal: 3,
     // borderWidth: 2,
+    width: '11%',
+    paddingHorizontal: 3,
     justifyContent: 'center',
     alignContent: 'center',
+  },
+  createCircleBorder: {
+    borderColor: 'white',
+    borderRadius: 100,
+    borderWidth: 2,
+    width: 35,
+    height: 35,
   },
   callIcon: {
     color: 'white',
     padding: 3,
     justifyContent: 'center',
     alignContent: 'center',
-    borderColor: 'white',
-    borderWidth: 2,
-    borderRadius: 50,
+  },
+  inputContainer: {
+    flexDirection: 'row',
+    backgroundColor: 'white',
+    width: '93%',
+    marginLeft: 'auto',
+    marginRight: 'auto',
+    borderRadius: 12,
+
+  },
+  bottomIcons: {
+    fontSize: 35,
+    marginLeft: 'auto',
+    marginRight: 'auto',
+    marginTop: 'auto',
+    marginBottom: 'auto',
+    color: '#EBEBEB',
+  },
+  textInput: {
+    // backgroundColor: 'white',
+    fontSize: 17,
+    width: '70%',
+    height: 42,
   }
 });
