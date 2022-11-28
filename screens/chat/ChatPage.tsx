@@ -6,35 +6,13 @@ import { Octicons } from '@expo/vector-icons';
 import ChatBot from './components/chat-bot';
 import { AntDesign } from '@expo/vector-icons';
 import { useState } from 'react';
+import { ChatHeader } from './components/chat-header';
 
 export function ChatPage() {
 
   return (
     <View style={styles.container}>
-      <View style={styles.headerContainer}>
-        <View style={styles.image}>
-          <Image source={userImage1} />
-        </View>
-        <View style={styles.userNameContainer}>
-          <Text style={styles.userName}>John</Text>
-        </View>
-        <View style={styles.iconContainer}>
-          <TouchableOpacity>
-            <View style={styles.createCircleBorder}>
-              <Ionicons name="call-outline" size={24} style={styles.callIcon} />
-            </View>
-          </TouchableOpacity>
-        </View>
-        <View style={styles.iconContainer}>
-          <TouchableOpacity>
-            <View style={styles.createCircleBorder}>
-
-              <Octicons name="device-camera-video" size={24} style={styles.callIcon} />
-
-            </View>
-          </TouchableOpacity>
-        </View>
-      </View>
+      <ChatHeader/>
       <View style={{ height: '87%' }}>
         <View style={{ height: '85%', width: '97%', marginRight: 'auto', marginLeft: 'auto' }}>
           <ChatBot />
