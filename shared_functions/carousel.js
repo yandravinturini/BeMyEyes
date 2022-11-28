@@ -1,14 +1,21 @@
-import { StyleSheet,View,FlatList,} from "react-native";
+import { StyleSheet,View,FlatList, Pressable, TouchableOpacity,} from "react-native";
 import data from "../shared_functions/carouselData";
 import CarouselItem from "../shared_functions/carouselItem";
 
-export default function Carousel() {
- 
+export default function Carousel({ navigation }) {
+
+  function DetailsPage(trip: Trip){
+    navigation.navigate('PreConfirmTrip', {trip: trip,});
+  }
+
   return (
     <View style={styles.container}>
       <FlatList
         data={data}
-        renderItem={({ item }) => <CarouselItem item={item} />}
+        renderItem={({ item }) =>  
+        <TouchableOpacity onPress={() => DetailsPage(item.trip)}>
+          <CarouselItem item={item} ></CarouselItem>
+          </TouchableOpacity> }
         horizontal
         pagingEnabled
         bounces={false}

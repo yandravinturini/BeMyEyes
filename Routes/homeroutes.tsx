@@ -1,22 +1,19 @@
-import { FoundTrips } from '../screens/FoundTripsPage';
-import { Search }from '../screens/SearchPage';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { PreConfirmScreen } from '../screens/PreConfirmScreen';
 import { PosConfirmScreen } from '../screens/PosConfirmScreen';
 import { StyleSheet, Image, Pressable } from 'react-native';
 import turnBack from '../assets/images/ícones/arrow-back-circle-outline.png';
-import { destiny } from '../screens/FoundTripsPage';
+import { HomePage } from '../screens/HomePage';
 const Stack = createNativeStackNavigator();
 
-export function SearchRoutes({ route, navigation }){
+export function HomeRoutes({ route, navigation }){
   function turnBackToMain() {
-  //  navigation.navigate('FoundTrips', {firstLoc: destiny,});
-    navigation.navigate('Whereto');
+    navigation.navigate('Home');
   }
 
   return (
     <Stack.Navigator
-      initialRouteName='Whereto'
+      initialRouteName='Home'
       screenOptions={{
         headerLeft: () => (
           <Image
@@ -30,7 +27,7 @@ export function SearchRoutes({ route, navigation }){
       }}
     >
       <Stack.Screen 
-        name= 'Whereto'                     //nome a ser usado para chamada da screen
+        name= 'Home'                     //nome a ser usado para chamada da screen
         options={{
           headerLeft: () => (
             <Image
@@ -42,22 +39,7 @@ export function SearchRoutes({ route, navigation }){
           headerStyle: { backgroundColor: '#EBEBEB' },
           headerTitle: '',
         }}
-        component={Search}       //definir componente que vai ser renderizado
-      />
-      <Stack.Screen
-        name= 'FoundTrips'
-        options={{
-          headerLeft: () => (
-            <Image
-              style={styles.logo}
-              source={require('../assets/images/logo.png')}
-            />
-          ),
-          headerShadowVisible: false,
-          headerStyle: { backgroundColor: '#EBEBEB' },
-          headerTitle: '',
-        }}
-        component={FoundTrips}
+        component={HomePage}       //definir componente que vai ser renderizado
       />
       <Stack.Screen
         name='PreConfirmTrip'

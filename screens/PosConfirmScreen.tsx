@@ -1,16 +1,34 @@
 import { Ionicons } from '@expo/vector-icons';
-import { StyleSheet, Text, View, Image, Pressable } from 'react-native';
+import { StyleSheet, Text, View, Image, Pressable, unstable_enableLogBox } from 'react-native';
 import { Trip } from '../shared_functions/trip';
 import ChatIcon from '../assets/images/ícones/ChatIconGreen.png';
 import GalleryIcon from '../assets/images/ícones/GalleryIconGreen.png';
+import React, { useEffect, useState} from "react";
+import { LogBox } from 'react-native';
 
+LogBox.ignoreLogs([
+    'Non-serializable values were found in the navigation state',
+  ]);
 
-export function PosConfirmScreen({navigation}: {navigation:any}) {
+export function PosConfirmScreen({route}: {route:any}) {
 
-    const trip1 = new Trip("Dan", "Ellon", "Porto", "2022-05-20", "2022-05-24", "passageiro", "https://images.unsplash.com/photo-1569959220744-ff553533f492?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1164&q=80", "https://images.unsplash.com/photo-1564564321837-a57b7070ac4f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1176&q=80");
+    //const trip1 = new Trip("Dan", "Ellon", "Porto", "2022-05-20", "2022-05-24", "passageiro", "https://images.unsplash.com/photo-1569959220744-ff553533f492?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1164&q=80", "https://images.unsplash.com/photo-1564564321837-a57b7070ac4f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1176&q=80");
+    const trip1 = route.params.trip
+    const date = new Date();
+    var currentDate = date.toString();
+    var end = trip1.endDate;
+    var end2 = end.toString();
+    const [past, setPast] = useState(0)
+
+    const checkDate = () => {
+        if(currentDate > end2){
+            return 1;
+        }
+        return 0;
+    }
 
     function goToChat() {
-        navigation.navigate('ChatPage');
+        route.navigate('ChatPage');
     }
 
     return (
@@ -37,7 +55,7 @@ export function PosConfirmScreen({navigation}: {navigation:any}) {
             </View>
             <View style={styles.travellingWithContainer}>
                 <Ionicons name="pin" size={25} color="#A17C6B" style={styles.pinIcon} />
-                <Text style={styles.textTravellingWith}>You're travelling with</Text>
+                {checkDate()? <Text style={styles.textTravellingWith}>You've travelled with</Text> : <Text style={styles.textTravellingWith}>You're travelling with</Text>}
             </View>
             <View style={styles.userInformationContainer}>
                 <Image source={{uri: trip1.profileIcon}} style={styles.userImage}/>

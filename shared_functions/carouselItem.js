@@ -5,7 +5,7 @@ import {
   View,
   Image,
   useWindowDimensions,
-  BackgroundImage,
+  BackgroundImage, Pressable
 } from "react-native";
 
 const { width, height } = Dimensions.get("window");
@@ -13,6 +13,7 @@ const { width, height } = Dimensions.get("window");
 export default function CarouselItem({ item }) {
   return (
     <View style={styles.container}>
+  
         <Image source={{ uri: item.sourceImage }} style={styles.image} />
 
         <Image source={require('../assets/images/carouselmask.png')}style={styles.image}/>
@@ -25,7 +26,6 @@ export default function CarouselItem({ item }) {
       <Image source={{ uri: item.sourcePerson }} style={styles.profilePic} />
 
       <Text style={styles.userName}>{item.person}</Text>
-
     </View>
   );
 }

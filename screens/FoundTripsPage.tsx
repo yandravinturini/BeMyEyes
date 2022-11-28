@@ -1,30 +1,17 @@
 import { Ionicons } from '@expo/vector-icons';
 import React, { useEffect, useState} from "react";
-import { StyleSheet, Text, TextInput, ScrollView, View, Platform, TouchableOpacity, Image, Touchable } from 'react-native';
+import { StyleSheet, Text, TextInput, ScrollView, View, Platform, TouchableOpacity, Image, Pressable } from 'react-native';
+import DateTimePicker from '@react-native-community/datetimepicker';
 
 import {Trip} from '../shared_functions/trip';
 import {Card} from '../shared_functions/card'
-// import DateTimePickerModal from "react-native-modal-datetime-picker";
 import green_arrow from '../assets/images/green_arrow.png';
 import gray_arrow from '../assets/images/gray_arrow.png';
 
-export function FoundTrips({route}: {route:any}){    
+export function FoundTrips({ route, navigation }){    
   const [counter, setCounter] = useState(0)
   const [orderAsc, setOrderAsc] = useState(1)
- // const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
-
-  // const showDatePicker = () => {
-  //   setDatePickerVisibility(true);
-  // };
-
-  // const hideDatePicker = () => {
-  //   setDatePickerVisibility(false);
-  // };
-
-  // const handleConfirm = (date) => {
-  //   console.warn("A date has been picked: ", date);
-  //   hideDatePicker();
-  // };
+  const [counterDate, setCounterDate] = useState(0)
 
   const checkImage = () => {
     if (!location2.trim()) {
@@ -33,17 +20,39 @@ export function FoundTrips({route}: {route:any}){
     return green_arrow;
   }
 
+  function DetailsPage(trip: any){
+    navigation.navigate('PreConfirmTrip', {trip: trip,});
+  }
 
-  const trip1 = new Trip("", "Joana", "Cairo", "2022-05-03", "2022-05-10", "passageiro", "https://images.unsplash.com/photo-1562842523-6d492ddc3e25?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80", "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80")
-  const trip2 = new Trip("", "Robert", "Cairo", "2022-01-23", "2022-01-31", "passageiro", "https://images.unsplash.com/photo-1561778498-2d8ef2ade19e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=973&q=80", "https://images.unsplash.com/photo-1521119989659-a83eee488004?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=423&q=80")
-  const trip3 = new Trip("", "Carlo", "Cairo", "2022-01-27", "2022-02-04", "passageiro", "https://images.unsplash.com/photo-1569531955317-390fbbc73f17?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80", "https://images.unsplash.com/photo-1599566150163-29194dcaad36?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80")
-  const trip4 = new Trip("", "Isa", "Berlin", "2022-03-26", "2022-03-30", "passageiro", "https://images.unsplash.com/photo-1552553302-9211bf7f7053?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80", "https://images.unsplash.com/photo-1563620915-8478239e9aab?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=435&q=80")
-  const trip5 = new Trip("", "Anne Marie", "Paris", "2022-03-27", "2022-04-10", "passageiro", "https://images.unsplash.com/photo-1551634979-2b11f8c946fe?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80", "https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80")
-  const trip6 = new Trip("", "Fred", "Madrid", "2022-05-03", "2022-5-10", "passageiro", "https://images.unsplash.com/photo-1570698473651-b2de99bae12f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=436&q=80", "https://images.unsplash.com/photo-1615813967515-e1838c1c5116?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80")
-  const trip7 = new Trip("", "Polly", "Monte Carlo", "2022-05-03", "2022-05-10", "passageiro", "https://images.unsplash.com/photo-1570003550321-14dd053a5956?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=465&q=80", "https://images.unsplash.com/photo-1542596768-5d1d21f1cf98?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80")
+  const trip1 = new Trip("", "Joana", "Cairo", "2023-05-03", "2023-05-10", "passageiro", "https://images.unsplash.com/photo-1562842523-6d492ddc3e25?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80", "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80")
+  const trip2 = new Trip("", "Robert", "Cairo", "2023-01-23", "2023-01-31", "passageiro", "https://images.unsplash.com/photo-1561778498-2d8ef2ade19e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=973&q=80", "https://images.unsplash.com/photo-1521119989659-a83eee488004?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=423&q=80")
+  const trip3 = new Trip("", "Carlo", "Cairo", "2023-01-27", "2023-02-04", "passageiro", "https://images.unsplash.com/photo-1569531955317-390fbbc73f17?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80", "https://images.unsplash.com/photo-1599566150163-29194dcaad36?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80")
+  const trip4 = new Trip("", "Isa", "Berlin", "2023-03-26", "2023-03-30", "passageiro", "https://images.unsplash.com/photo-1552553302-9211bf7f7053?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80", "https://images.unsplash.com/photo-1563620915-8478239e9aab?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=435&q=80")
+  const trip5 = new Trip("", "Anne Marie", "Paris", "2023-03-27", "2023-04-10", "passageiro", "https://images.unsplash.com/photo-1551634979-2b11f8c946fe?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80", "https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80")
+  const trip6 = new Trip("", "Fred", "Madrid", "2023-05-03", "2023-5-10", "passageiro", "https://images.unsplash.com/photo-1570698473651-b2de99bae12f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=436&q=80", "https://images.unsplash.com/photo-1615813967515-e1838c1c5116?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80")
+  const trip7 = new Trip("", "Polly", "Monte Carlo", "2023-05-03", "2023-05-10", "passageiro", "https://images.unsplash.com/photo-1570003550321-14dd053a5956?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=465&q=80", "https://images.unsplash.com/photo-1542596768-5d1d21f1cf98?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80")
 
   const [location, setLocation] = useState("");
   const [location2, setLocation2] = useState("");
+
+  const [date, setDate] = useState(new Date());
+  const [datePicker, setDatePicker] = useState(false);
+  
+  function showDatePicker(){
+    setDatePicker(true);
+  };
+  
+  function onDateSelected(event, value) {
+    setDate(value);
+    setDatePicker(false);
+    setCounterDate(1);
+  };
+
+  function daysBetweenDates(date1, date2){
+    const diff   = date1 - date2;
+    const diffInDays = diff / (1000 * 60 * 60 * 24);
+    return diffInDays;
+  }
 
   const onPressFunction = () =>  {
     setLocation(location => location2);
@@ -59,13 +68,6 @@ export function FoundTrips({route}: {route:any}){
     }
     return 0;
   };
-
-  // const checkColor = () => {
-  //   if (!location_.trim()) {
-  //     return "#EBEBEB";
-  //   }
-  //   return "#88B83B";
-  // }
 
   const choosePlaceholder = () =>{
     if (counter === 0){
@@ -90,6 +92,7 @@ export function FoundTrips({route}: {route:any}){
   const filterLocation = () =>{
     futureTripsCards = [];
     let futureTrips = [trip1, trip2, trip3, trip4, trip5, trip6, trip7];
+    var trips = [];
     
     if (orderAsc === 0){
       futureTrips.sort((a, b) => (a.startDate < b.startDate ? -1 : 1));
@@ -101,35 +104,91 @@ export function FoundTrips({route}: {route:any}){
     }
 
     if (counter === 0){
-      for(let i = 0; i < futureTrips.length; i++){
-        if (futureTrips[i].place === route.params.firstLoc){
-          futureTripsCards.push(Card(futureTrips[i]))
+      if (counterDate === 0){
+        for(let i = 0; i < futureTrips.length; i++){
+          if (futureTrips[i].place === route.params.firstLoc){
+            futureTripsCards.push(Card(futureTrips[i]))
+            trips.push(futureTrips[i])
+          }
+        }
+      }
+      else{
+        for(let i = 0; i < futureTrips.length; i++){
+          if (futureTrips[i].place === route.params.firstLoc && futureTrips[i].startDate.toDateString() === date.toDateString()){
+            futureTripsCards.push(Card(futureTrips[i]))
+            trips.push(futureTrips[i])
+          }
+        }
+        if (futureTripsCards.length === 0){
+          for(let i = 0; i < futureTrips.length; i++){
+            const datediff = daysBetweenDates(date, futureTrips[i].startDate)
+            if (futureTrips[i].place === route.params.firstLoc && (datediff < 5 && datediff > -5)){
+              futureTripsCards.push(Card(futureTrips[i]))
+              trips.push(futureTrips[i])
+            }
+          }
         }
       }
     }
 
     else{
-      for(let i = 0; i < futureTrips.length; i++){
-        if (futureTrips[i].place === location){
-          futureTripsCards.push(Card(futureTrips[i]))
+      if (counterDate === 0 ){
+        for(let i = 0; i < futureTrips.length; i++){
+          if (futureTrips[i].place === location){
+            futureTripsCards.push(Card(futureTrips[i]))
+            trips.push(futureTrips[i])
+          }
+        }
+      }
+      else{
+        for(let i = 0; i < futureTrips.length; i++){
+          if (futureTrips[i].place === location && futureTrips[i].startDate.toDateString() === date.toDateString()){
+            futureTripsCards.push(Card(futureTrips[i]))
+            trips.push(futureTrips[i])
+          }
+        }
+        if (futureTripsCards.length === 0){
+          for(let i = 0; i < futureTrips.length; i++){
+            const datediff = daysBetweenDates(date, futureTrips[i].startDate);
+            if (futureTrips[i].place === location && (datediff < 5 && datediff > -5)){
+              futureTripsCards.push(Card(futureTrips[i]))
+              trips.push(futureTrips[i])
+            }
+          }
         }
       }
     }
 
 
    if (futureTripsCards.length > 0){
-      return <>{futureTripsCards.map((item, index) => (<View key={index.toString()}>{item}</View>))}</>
+      return <>
+        {futureTripsCards.map((item, index) => (
+          <View key={index.toString()}>
+          <Pressable onPress={() => DetailsPage(trips[index])}>
+            {item}
+          </Pressable>
+          </View>))}
+      </>
   }
 
     else{
       return(
-        <>{<Text style={styles.text_no_dest}>No trips for this destination...</Text>}</>
+        <>{<Text style={styles.text_no_dest}>Sorry! We were unable to find a trip for your desires...</Text>}</>
       )
       }
   }
 
   return (
       <View style={styles.container}>
+          {datePicker && (
+                <DateTimePicker
+                  value={date}
+                  mode={'date'}
+                  display={Platform.OS === 'ios' ? 'spinner' : 'default'}
+                  is24Hour={true}
+                  onChange={onDateSelected}
+                />
+          )}
         <ScrollView>
           <View style={styles.containerTop}>
             <View style={styles.containerWhereTo}>
@@ -159,8 +218,8 @@ export function FoundTrips({route}: {route:any}){
                </TouchableOpacity>
               </View>
               <View style={styles.datedown}>
-                 <TouchableOpacity style={styles.lastButton}>
-                 <Text style={styles.textButton}>Date</Text>
+                 <TouchableOpacity style={styles.lastButton} onPress={showDatePicker}>
+                 {counterDate? <Text style={styles.textButtonSelected}>Date</Text> : <Text style={styles.textButton}>Date</Text>}
                  </TouchableOpacity>
               </View>
           </View>
@@ -224,21 +283,6 @@ const styles = StyleSheet.create({
     alignItems:'center', 
     marginTop: 30,
   },
-
-  // container2: {
-  //   flex: 2,
-  //   flexGrow: 0,  /* do not grow   - initial value: 0 */
-  //   flexShrink: 0,  /* do not shrink - initial value: 1 */
-  //   flexBasis: 30,
-  //   alignItems: 'flex-start',
-  //   justifyContent: 'center',
-  //   paddingLeft: 0,
-  //   backgroundColor: "#EBEBEB",
-  //   marginBottom: 10,
-  //   width: '100%',
-  //   marginLeft: 'auto',
-  //   marginRight: 'auto',
-  // },
 
   containerCards: {
     backgroundColor: "#EBEBEB",
@@ -399,6 +443,7 @@ const styles = StyleSheet.create({
     width: 27,
     height: 25,
   },
+
 
 });
 
