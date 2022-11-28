@@ -1,19 +1,23 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { PreConfirmScreen } from '../screens/PreConfirmScreen';
 import { PosConfirmScreen } from '../screens/PosConfirmScreen';
 import { StyleSheet, Image, Pressable } from 'react-native';
 import turnBack from '../assets/images/ícones/arrow-back-circle-outline.png';
-import { HomePage } from '../screens/HomePage';
-const Stack = createNativeStackNavigator();
+import { ChatRoutes } from './chat';
+const T = createBottomTabNavigator();
+const S = createNativeStackNavigator();
 
-export function HomeRoutes({ navigation }: { navigation: any }){
+import { ChatPage } from '../screens/chat/ChatPage';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+
+export function PosRoutes({ navigation }: { navigation: any }) {
   function turnBackToMain() {
-    navigation.navigate('Home');
+    navigation.goBack()
   }
 
+
   return (
-    <Stack.Navigator
-      initialRouteName='Home'
+    <S.Navigator
+      initialRouteName='MainTripPage'
       screenOptions={{
         headerLeft: () => (
           <Image
@@ -26,33 +30,7 @@ export function HomeRoutes({ navigation }: { navigation: any }){
         headerTitle: '',
       }}
     >
-      <Stack.Screen 
-        name= 'Home'                     //nome a ser usado para chamada da screen
-        options={{
-          headerLeft: () => (
-            <Image
-              style={styles.logo}
-              source={require('../assets/images/logo.png')}
-            />
-          ),
-          headerShadowVisible: false,
-          headerStyle: { backgroundColor: '#EBEBEB' },
-          headerTitle: '',
-        }}
-        component={HomePage}       //definir componente que vai ser renderizado
-      />
-      <Stack.Screen
-        name='PreConfirmTrip'
-        options={{
-          headerRight: () => (
-            <Pressable onPress={turnBackToMain}>
-              <Image source={turnBack} />
-            </Pressable>
-          ),
-        }}
-        component={PreConfirmScreen}
-      />
-      <Stack.Screen
+      <S.Screen
         name='PosConfirmTrip'
         options={{
           headerRight: () => (
@@ -63,7 +41,22 @@ export function HomeRoutes({ navigation }: { navigation: any }){
         }}
         component={PosConfirmScreen}
       />
-    </Stack.Navigator>
+    
+    <T.Navigator>
+        <T.Screen
+        name='ChatPage'
+        options={{
+          headerRight: () => (
+            <Pressable onPress={turnBackToMain}>
+              <Image source={turnBack} />
+            </Pressable>
+          ),
+        }}
+        component={ChatPage}
+      />
+    </T.Navigator>
+
+    </S.Navigator>
   );
 }
 
@@ -74,3 +67,17 @@ const styles = StyleSheet.create({
     height: 50,
   },
 });
+
+
+
+<Trip.Screen
+        name='ChatPage'
+        options={{
+          headerRight: () => (
+            <Pressable onPress={turnBackToMain}>
+              <Image source={turnBack} />
+            </Pressable>
+          ),
+        }}
+        component={ChatPage}
+      />
