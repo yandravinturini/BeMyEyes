@@ -7,11 +7,11 @@ import gray_arrow from '../assets/images/gray_arrow.png';
 export function Search({ navigation }: { navigation: any }) {
 
   function foundTrips() {
-    navigation.navigate('FoundTrips', {firstLoc: location,})
+    navigation.navigate('FoundTrips', { firstLoc: location, })
   }
 
- // const green_arrow = {uri: "https://i.ibb.co/DwMcW7b/green-arrow.png"}
- // const gray_arrow = {uri: "https://i.ibb.co/Tw0Hpsg/gray-arrow.png"}
+  // const green_arrow = {uri: "https://i.ibb.co/DwMcW7b/green-arrow.png"}
+  // const gray_arrow = {uri: "https://i.ibb.co/Tw0Hpsg/gray-arrow.png"}
 
 
   const [location, setLocation] = useState("");
@@ -43,7 +43,7 @@ export function Search({ navigation }: { navigation: any }) {
         source={require('../assets/images/Component1.png')}
         style={styles.backgroundStyle}>
         <Text style={styles.text}>Where to?</Text>
-        <View style={{ flexDirection: 'row' }}> 
+        <View style={{ flexDirection: 'row' }}>
           <TextInput
             style={styles.input_location}
             placeholder="Lisbon"
@@ -56,7 +56,7 @@ export function Search({ navigation }: { navigation: any }) {
           >
             <Image style={styles.arrowStyle} source={checkImage()}></Image>
           </TouchableOpacity>
-        </View> 
+        </View>
       </ImageBackground>
     </View>
   );
@@ -117,7 +117,7 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
   },
 
-  arrowStyle:{
+  arrowStyle: {
     width: 27,
     height: 25,
   },

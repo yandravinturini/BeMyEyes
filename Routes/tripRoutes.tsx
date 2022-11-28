@@ -11,7 +11,7 @@ import turnBack from '../assets/images/ícones/arrow-back-circle-outline.png';
 const Trip = createNativeStackNavigator();
 
 import { TripPage } from '../screens/TripPage';
-import { ChatPage } from '../screens/ChatPage';
+import { ChatPage } from '../screens/chat/ChatPage';
 
 export function TripRoutes({ navigation }: { navigation: any }) {
   function turnBackToMain() {
