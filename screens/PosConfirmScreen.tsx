@@ -10,7 +10,7 @@ LogBox.ignoreLogs([
     'Non-serializable values were found in the navigation state',
   ]);
 
-export function PosConfirmScreen({navigation, route}) {
+export function PosConfirmScreen({route, navigation}) {
 
     //const trip1 = new Trip("Dan", "Ellon", "Porto", "2022-05-20", "2022-05-24", "passageiro", "https://images.unsplash.com/photo-1569959220744-ff553533f492?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1164&q=80", "https://images.unsplash.com/photo-1564564321837-a57b7070ac4f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1176&q=80");
     const trip1 = route.params.trip
