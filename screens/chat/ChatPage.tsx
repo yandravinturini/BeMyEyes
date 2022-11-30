@@ -88,13 +88,13 @@ export function ChatPage() {
 
   const saveInput = () => {
     const inputArray = []
-    const inputArray2 =  {
+    const inputArray2 = {
       "text": fromInput
     }
     inputArray.push(inputArray2)
-  
+
     console.log(inputArray)
-    
+
     if (fromInput) {
       // console.log('dentro', fromInput)
       setComponentNewMessage([
@@ -147,8 +147,7 @@ export function ChatPage() {
                   </Fragment>
                 )
               })}
-              {componentNewMessage.map((component, index) => 
-              {
+              {componentNewMessage.map((component, index) => {
                 return (
                   <Fragment key={index}>
                     {component}
@@ -168,11 +167,11 @@ export function ChatPage() {
             </TouchableOpacity>
             {/* <PickImageGallery/> */}
             <TextInput style={styles.textInput}
-             onChangeText={(newMessage) => setFromInput(newMessage)}
+              onChangeText={(newMessage) => setFromInput(newMessage)} placeholder=""
             // value={newMessage} onChangeText={setNewMessage}
             />
             <TouchableOpacity style={{ marginLeft: 'auto', marginRight: 'auto', }} onPress={saveInput}>
-              <AntDesign name="arrowright" style={styles.bottomIcons} />
+              {fromInput ? <AntDesign name="arrowright" style={styles.bottomIconsGreen} /> : <AntDesign name="arrowright" style={styles.bottomIcons} />}
             </TouchableOpacity>
           </View>
         </View>
@@ -249,6 +248,12 @@ const styles = StyleSheet.create({
     marginTop: 'auto',
     marginBottom: 'auto',
     color: '#EBEBEB',
+  },
+  bottomIconsGreen: {
+    fontSize: 35,
+    marginTop: 'auto',
+    marginBottom: 'auto',
+    color: '#88B83B',
   },
   textInput: {
     // borderColor: 'red', 

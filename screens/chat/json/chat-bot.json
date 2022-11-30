@@ -2,24 +2,18 @@
   "chatBot": {
     "messages": [
       {
-        "text": "Oi tudo bem?"
+        "text": "Hi!! How is Cairo?"
       },
       {
-        "text": "Oi oi oi oi oi"
-      },
-      {
-        "text": "Quero pizza"
+        "text": "I would love to see a picture of it"
       }
     ]
   },
   "user": {
     "messages": [
       {
-        "text": "sou user 1"
+        "text": "Hi, what's up? :)"
       },
-      {
-        "text": "sim"
-      }
     ]
   },
   "imagesUpload": {

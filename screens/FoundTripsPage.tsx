@@ -106,7 +106,7 @@ export function FoundTrips({ route, navigation }){
     if (counter === 0){
       if (counterDate === 0){
         for(let i = 0; i < futureTrips.length; i++){
-          if (futureTrips[i].place === route.params.firstLoc){
+          if (futureTrips[i].place.toLocaleLowerCase() === route.params.firstLoc.toLocaleLowerCase()){
             futureTripsCards.push(Card(futureTrips[i]))
             trips.push(futureTrips[i])
           }
@@ -114,7 +114,7 @@ export function FoundTrips({ route, navigation }){
       }
       else{
         for(let i = 0; i < futureTrips.length; i++){
-          if (futureTrips[i].place === route.params.firstLoc && futureTrips[i].startDate.toDateString() === date.toDateString()){
+          if (futureTrips[i].place.toLocaleLowerCase() === route.params.firstLoc.toLocaleLowerCase() && futureTrips[i].startDate.toDateString() === date.toDateString()){
             futureTripsCards.push(Card(futureTrips[i]))
             trips.push(futureTrips[i])
           }
@@ -122,7 +122,7 @@ export function FoundTrips({ route, navigation }){
         if (futureTripsCards.length === 0){
           for(let i = 0; i < futureTrips.length; i++){
             const datediff = daysBetweenDates(date, futureTrips[i].startDate)
-            if (futureTrips[i].place === route.params.firstLoc && (datediff < 5 && datediff > -5)){
+            if (futureTrips[i].place.toLocaleLowerCase() === route.params.firstLoc.toLocaleLowerCase() && (datediff < 5 && datediff > -5)){
               futureTripsCards.push(Card(futureTrips[i]))
               trips.push(futureTrips[i])
             }
@@ -134,7 +134,7 @@ export function FoundTrips({ route, navigation }){
     else{
       if (counterDate === 0 ){
         for(let i = 0; i < futureTrips.length; i++){
-          if (futureTrips[i].place === location){
+          if (futureTrips[i].place.toLocaleLowerCase() === location.toLocaleLowerCase()){
             futureTripsCards.push(Card(futureTrips[i]))
             trips.push(futureTrips[i])
           }
@@ -142,7 +142,7 @@ export function FoundTrips({ route, navigation }){
       }
       else{
         for(let i = 0; i < futureTrips.length; i++){
-          if (futureTrips[i].place === location && futureTrips[i].startDate.toDateString() === date.toDateString()){
+          if (futureTrips[i].place.toLocaleLowerCase() === location.toLocaleLowerCase() && futureTrips[i].startDate.toDateString() === date.toDateString()){
             futureTripsCards.push(Card(futureTrips[i]))
             trips.push(futureTrips[i])
           }
@@ -150,7 +150,7 @@ export function FoundTrips({ route, navigation }){
         if (futureTripsCards.length === 0){
           for(let i = 0; i < futureTrips.length; i++){
             const datediff = daysBetweenDates(date, futureTrips[i].startDate);
-            if (futureTrips[i].place === location && (datediff < 5 && datediff > -5)){
+            if (futureTrips[i].place.toLocaleLowerCase() === location.toLocaleLowerCase() && (datediff < 5 && datediff > -5)){
               futureTripsCards.push(Card(futureTrips[i]))
               trips.push(futureTrips[i])
             }
