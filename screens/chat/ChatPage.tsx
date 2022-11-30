@@ -5,12 +5,13 @@ import { Ionicons } from '@expo/vector-icons';
 import { Octicons } from '@expo/vector-icons';
 import ChatBot from './components/chat-bot';
 import { AntDesign } from '@expo/vector-icons';
-import { Fragment, useEffect, useState } from 'react';
+import { Fragment, useEffect, useState, useLayoutEffect } from 'react';
 import { ChatHeader } from './components/chat-header';
 import PickImageGallery from './components/pick-image-gallery';
 import * as ImagePicker from 'expo-image-picker';
 import BubblesFactory from './components/bubbles-factory'
 import UserBubble from './components/user-bubble'
+import ImageBubble from './components/image-bubble'
 import data from './json/chat-bot.json'
 import ChatBubble from './components/chat-bubble'
 
@@ -21,8 +22,7 @@ export function ChatPage() {
   //chat bot
   const [components, setComponents] = useState([])
   const [componentsUser, setComponentsUser] = useState([])
-  // const [newMessage, setNewMessage] = useState('');
-  // const [newData, setNewData] = useState([]);
+  const [componentImage, setComponentImage] = useState([])
 
 
   useEffect(() => {
@@ -34,18 +34,16 @@ export function ChatPage() {
       setComponentsUser([
         <BubblesFactory data={data?.user.messages} bubble={<UserBubble />} />
       ])
+      setComponentImage([
+        <BubblesFactory data={data?.imagesUpload.messages} bubble={<ImageBubble />} />
+      ])
     }
-    // if (newData) {
-    //   setNewData([
-    //     // eslint-disable-next-line react/jsx-key
-    //     <BubblesFactory data={{newMessage}} bubble={<UserBubble />} interval={3000} />
-    //   ])
-    // }
   }, [])
 
   //image picker
   const [hasGalleryPermission, setHasGalleryPermission] = useState(null);
   const [image, setImage] = useState(null);
+
 
   useEffect(() => {
     (async () => {
@@ -63,9 +61,49 @@ export function ChatPage() {
     })
 
     if (!result.cancelled) {
-      setImage(result.uri);
+      setImage(result.uri)
     }
   }
+
+
+  const [componentImageUploaded, setComponentImageUploaded] = useState([])
+  const imageArray = [
+    {
+      "uri": image
+    },
+  ]
+  useLayoutEffect(() => {
+    if (image) {
+      setComponentImageUploaded([
+        <BubblesFactory data={imageArray} bubble={<ImageBubble />} />
+      ])
+    }
+    console.log('fora', image)
+  }, [])
+
+
+  const [componentNewMessage, setComponentNewMessage] = useState([])
+  const [fromInput, setFromInput] = useState('')
+
+
+  const saveInput = () => {
+    const inputArray = []
+    const inputArray2 =  {
+      "text": fromInput
+    }
+    inputArray.push(inputArray2)
+  
+    console.log(inputArray)
+    
+    if (fromInput) {
+      // console.log('dentro', fromInput)
+      setComponentNewMessage([
+        <BubblesFactory data={inputArray} bubble={<UserBubble />} />
+      ])
+    }
+    // console.log('fora', fromInput)
+  }
+
 
   if (hasGalleryPermission == false) {
     return <Text>No access to Internal Storage</Text>
@@ -95,6 +133,30 @@ export function ChatPage() {
                   </Fragment>
                 )
               })}
+              {/* {componentImage.map((component, index) => {
+                return (
+                  <Fragment key={index}>
+                    {component}
+                  </Fragment>
+                )
+              })} */}
+              {componentImageUploaded.map((component, index) => {
+                return (
+                  <Fragment key={index}>
+                    {component}
+                  </Fragment>
+                )
+              })}
+              {componentNewMessage.map((component, index) => 
+              {
+                return (
+                  <Fragment key={index}>
+                    {component}
+                  </Fragment>
+                )
+              })}
+
+              {/* {image && <Image source={{ uri: image }} style={{ width: 50, height: 50 }} />} */}
 
             </ScrollView>
           </SafeAreaView>
@@ -106,10 +168,10 @@ export function ChatPage() {
             </TouchableOpacity>
             {/* <PickImageGallery/> */}
             <TextInput style={styles.textInput}
-              //  onChangeText={(newMessage) => setNewMessage(newMessage)}
-              // value={newMessage} onChangeText={setNewMessage}
+             onChangeText={(newMessage) => setFromInput(newMessage)}
+            // value={newMessage} onChangeText={setNewMessage}
             />
-            <TouchableOpacity style={{ marginLeft: 'auto', marginRight: 'auto', }}>
+            <TouchableOpacity style={{ marginLeft: 'auto', marginRight: 'auto', }} onPress={saveInput}>
               <AntDesign name="arrowright" style={styles.bottomIcons} />
             </TouchableOpacity>
           </View>

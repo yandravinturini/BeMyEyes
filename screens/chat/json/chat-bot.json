@@ -1,25 +1,32 @@
 {
-    "chatBot": {
-      "messages": [
-        {
-          "text": "Oi tudo bem?"
-        },
-        {
-          "text": "Oi oi oi oi oi"
-        },
-        {
-          "text": "Quero pizza"
-        }
-      ]
-    },
-    "user": {
-      "messages": [
-        {
-          "text": "sou user 1"
-        },
-        {
-          "text": "sim"
-        }
-      ] 
-    }
+  "chatBot": {
+    "messages": [
+      {
+        "text": "Oi tudo bem?"
+      },
+      {
+        "text": "Oi oi oi oi oi"
+      },
+      {
+        "text": "Quero pizza"
+      }
+    ]
+  },
+  "user": {
+    "messages": [
+      {
+        "text": "sou user 1"
+      },
+      {
+        "text": "sim"
+      }
+    ]
+  },
+  "imagesUpload": {
+    "messages": [
+      {
+        "uri": "file:///data/user/0/host.exp.exponent/cache/ImagePicker/4d516391-2f27-4320-9bbe-2a36bd0d822f.jpeg"
+      }
+    ]
   }
+}
