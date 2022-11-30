@@ -11,5 +11,15 @@
           "text": "Quero pizza"
         }
       ]
+    },
+    "user": {
+      "messages": [
+        {
+          "text": "sou user 1"
+        },
+        {
+          "text": "sim"
+        }
+      ] 
     }
   }
