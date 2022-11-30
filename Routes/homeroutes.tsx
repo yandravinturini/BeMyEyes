@@ -6,7 +6,7 @@ import turnBack from '../assets/images/ícones/arrow-back-circle-outline.png';
 import { HomePage } from '../screens/HomePage';
 const Stack = createNativeStackNavigator();
 
-export function HomeRoutes({ route, navigation }){
+export function HomeRoutes({ navigation }: { navigation: any }){
   function turnBackToMain() {
     navigation.navigate('Home');
   }

@@ -1,9 +1,7 @@
 import { Ionicons } from '@expo/vector-icons';
 import { StyleSheet, Text, View, Image, Pressable } from 'react-native';
-import { Trip } from '../shared_functions/trip';
 import ChatIcon from '../assets/images/ícones/ChatIconGreen.png';
 import GalleryIcon from '../assets/images/ícones/GalleryIconGreen.png';
-import React, { useEffect, useState} from "react";
 import { LogBox } from 'react-native';
 
 LogBox.ignoreLogs([
@@ -18,7 +16,6 @@ export function PosConfirmScreen({route, navigation}) {
     var currentDate = date.toString();
     var end = trip1.endDate;
     var end2 = end.toString();
-    const [past, setPast] = useState(0)
 
     const checkDate = () => {
         if(currentDate > end2){
@@ -28,7 +25,7 @@ export function PosConfirmScreen({route, navigation}) {
     }
 
     function goToChat() {
-        navigation.navigate('ChatPage');
+        navigation.jumpTo('Chat');
     }
 
     return (

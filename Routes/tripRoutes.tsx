@@ -7,7 +7,8 @@ import { PreConfirmScreen } from '../screens/PreConfirmScreen';
 import { StyleSheet, Image, Pressable } from 'react-native';
 import addTrip from '../assets/images/ícones/add-circle-outline.png';
 import turnBack from '../assets/images/ícones/arrow-back-circle-outline.png';
-
+import { ChatRoutes } from './chat';
+import {Tab} from '../routes/tab';
 const Trip = createNativeStackNavigator();
 
 import { TripPage } from '../screens/TripPage';
@@ -84,13 +85,6 @@ export function TripRoutes({ navigation }: { navigation: any }) {
         }}
         component={PosConfirmScreen}
       />
-      <Trip.Screen
-        name= 'ChatPage'
-        // options={{
-        // }}
-        component={ChatPage}
-      />
-
     </Trip.Navigator>
   );
 }
