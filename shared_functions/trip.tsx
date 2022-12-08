@@ -12,6 +12,10 @@ export class Trip {
     public get place() {
         return this._place;
     }
+    private _country;
+    public get country() {
+        return this._country;
+    }
     private _startDate;
     public get startDate() {
         return this._startDate;
@@ -38,12 +42,13 @@ export class Trip {
     
 
 
-    constructor(passenger:string, traveller:string, place:string, startDate:string, endDate:string, user_status: string, imageIcon:string, profileIcon:string){
+    constructor(passenger:string, traveller:string, place:string, country:string, startDate:string, endDate:string, user_status: string, imageIcon:string, profileIcon:string){
         var sDate = new Date(startDate)
         var eDate = new Date(endDate)
         this._passenger = passenger;
         this._traveller = traveller;
         this._place = place;
+        this._country = country;
         this._startDate = sDate;
         this._endDate = eDate;
         this._user_status = user_status;

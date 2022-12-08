@@ -8,7 +8,7 @@ const { width, height } = Dimensions.get("window");
 
 export function HomePage({ navigation }: { navigation: any }) {
 
-    const trip = new Trip("Ric", "Nuno", "Copenhagen", "2022-10-25", "2022-12-31", "viajante", "https://images.unsplash.com/photo-1552560880-2482cef14240?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=443&q=80", "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80")
+    const trip = new Trip("Ric", "Nuno", "Copenhagen", "Denmark", "2022-10-25", "2022-12-31", "viajante", "https://images.unsplash.com/photo-1552560880-2482cef14240?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=443&q=80", "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80")
 
   function DetailsPos(trip: Trip) {
     navigation.navigate('PosConfirmTrip', {trip: trip},);

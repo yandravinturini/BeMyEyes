@@ -18,7 +18,7 @@ export function PosConfirmScreen({route, navigation}) {
     var end2 = end.toString();
 
     const checkDate = () => {
-        if(currentDate > end2){
+        if(date > end){
             return 1;
         }
         return 0;
