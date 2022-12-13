@@ -198,7 +198,7 @@ export function FoundTrips({ route, navigation }){
                 <TextInput
                   style={styles.input_location}
                   placeholder={choosePlaceholder()}
-                  placeholderTextColor="black"
+                  placeholderTextColor="#EBEBEB"
                   onChangeText={(location2) => setLocation2(location2)}
                 />
                   <TouchableOpacity style={styles.button}
