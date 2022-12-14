@@ -14,6 +14,7 @@ import UserBubble from './components/user-bubble'
 import ImageBubble from './components/image-bubble'
 import data from './json/chat-bot.json'
 import ChatBubble from './components/chat-bubble'
+import React, { useRef } from 'react';
 
 
 export function ChatPage() {
@@ -22,7 +23,25 @@ export function ChatPage() {
   //chat bot
   const [components, setComponents] = useState([])
   const [componentsUser, setComponentsUser] = useState([])
-  const [componentImage, setComponentImage] = useState([])
+  // const [componentImage, setComponentImage] = useState([])
+  const [count, setCount] = useState(1);
+  const [componentNewMessage, setComponentNewMessage] = useState([])
+  const [componentNewMessage1, setComponentNewMessage1] = useState([])
+  const [componentNewMessage2, setComponentNewMessage2] = useState([])
+  const [componentNewMessage3, setComponentNewMessage3] = useState([])
+  const [componentNewMessage4, setComponentNewMessage4] = useState([])
+  const [componentNewMessage5, setComponentNewMessage5] = useState([])
+  const [componentNewMessage6, setComponentNewMessage6] = useState([])
+  const [componentNewMessage7, setComponentNewMessage7] = useState([])
+  const [componentNewMessage8, setComponentNewMessage8] = useState([])
+  const [componentNewMessage9, setComponentNewMessage9] = useState([])
+  const [fromInput, setFromInput] = useState('')
+  //image picker
+  const [hasGalleryPermission, setHasGalleryPermission] = useState(null);
+  const [image, setImage] = useState(null);
+  const [componentImageUploaded, setComponentImageUploaded] = useState([])
+
+  const scrollViewRef = useRef();
 
 
   useEffect(() => {
@@ -34,15 +53,13 @@ export function ChatPage() {
       setComponentsUser([
         <BubblesFactory data={data?.user.messages} bubble={<UserBubble />} />
       ])
-      setComponentImage([
-        <BubblesFactory data={data?.imagesUpload.messages} bubble={<ImageBubble />} />
-      ])
+      // setComponentImage([
+      //   <BubblesFactory data={data?.imagesUpload.messages} bubble={<ImageBubble />} />
+      // ])
     }
   }, [])
 
-  //image picker
-  const [hasGalleryPermission, setHasGalleryPermission] = useState(null);
-  const [image, setImage] = useState(null);
+
 
 
   useEffect(() => {
@@ -66,7 +83,7 @@ export function ChatPage() {
   }
 
 
-  const [componentImageUploaded, setComponentImageUploaded] = useState([])
+
   const imageArray = [
     {
       "uri": image
@@ -78,32 +95,95 @@ export function ChatPage() {
         <BubblesFactory data={imageArray} bubble={<ImageBubble />} />
       ])
     }
-    console.log('fora', image)
   }, [])
 
 
-  const [componentNewMessage, setComponentNewMessage] = useState([])
-  const [fromInput, setFromInput] = useState('')
 
-
-  const saveInput = () => {
+  function saveInput() {
+    console.log(count)
     const inputArray = []
     const inputArray2 = {
       "text": fromInput
     }
     inputArray.push(inputArray2)
 
-    console.log(inputArray)
-
-    if (fromInput) {
-      // console.log('dentro', fromInput)
-      setComponentNewMessage([
-        <BubblesFactory data={inputArray} bubble={<UserBubble />} />
-      ])
+    switch (count) {
+      case 1:
+        console.log('case 1')
+        if (fromInput) {
+          setComponentNewMessage([
+            <BubblesFactory data={inputArray} bubble={<UserBubble />} />
+          ])
+        }
+        break
+      case 2:
+        console.log('case 2')
+        if (fromInput) {
+          setComponentNewMessage1([
+            <BubblesFactory data={inputArray} bubble={<UserBubble />} />
+          ])
+        }
+        break
+      case 3:
+        if (fromInput) {
+          setComponentNewMessage2([
+            <BubblesFactory data={inputArray} bubble={<UserBubble />} />
+          ])
+        }
+        break
+      case 4:
+        if (fromInput) {
+          setComponentNewMessage3([
+            <BubblesFactory data={inputArray} bubble={<UserBubble />} />
+          ])
+        }
+        break
+      case 5:
+        if (fromInput) {
+          setComponentNewMessage4([
+            <BubblesFactory data={inputArray} bubble={<UserBubble />} />
+          ])
+        }
+        break
+      case 6:
+        if (fromInput) {
+          setComponentNewMessage5([
+            <BubblesFactory data={inputArray} bubble={<UserBubble />} />
+          ])
+        }
+        break
+      case 7:
+        if (fromInput) {
+          setComponentNewMessage6([
+            <BubblesFactory data={inputArray} bubble={<UserBubble />} />
+          ])
+        }
+        break
+      case 8:
+        if (fromInput) {
+          setComponentNewMessage7([
+            <BubblesFactory data={inputArray} bubble={<UserBubble />} />
+          ])
+        }
+        break
+      case 9:
+        if (fromInput) {
+          setComponentNewMessage8([
+            <BubblesFactory data={inputArray} bubble={<UserBubble />} />
+          ])
+        }
+        break
+      case 10:
+        if (fromInput) {
+          setComponentNewMessage9([
+            <BubblesFactory data={inputArray} bubble={<UserBubble />} />
+          ])
+        }
+        break
     }
-    // console.log('fora', fromInput)
+    setCount(count + 1)
+    setFromInput('')
   }
-
 
   if (hasGalleryPermission == false) {
     return <Text>No access to Internal Storage</Text>
@@ -118,7 +198,8 @@ export function ChatPage() {
         <View style={{ height: '85%', width: '97%', marginRight: 'auto', marginLeft: 'auto' }}>
           {/* <ChatBot /> */}
           <SafeAreaView style={styles.containerBot}>
-            <ScrollView>
+            <ScrollView ref={scrollViewRef}
+              onContentSizeChange={() => scrollViewRef.current.scrollToEnd({ animated: true })}>
               {componentsUser.map((component, index) => {
                 return (
                   <Fragment key={index}>
@@ -133,13 +214,6 @@ export function ChatPage() {
                   </Fragment>
                 )
               })}
-              {/* {componentImage.map((component, index) => {
-                return (
-                  <Fragment key={index}>
-                    {component}
-                  </Fragment>
-                )
-              })} */}
               {componentImageUploaded.map((component, index) => {
                 return (
                   <Fragment key={index}>
@@ -154,9 +228,69 @@ export function ChatPage() {
                   </Fragment>
                 )
               })}
-
-              {/* {image && <Image source={{ uri: image }} style={{ width: 50, height: 50 }} />} */}
-
+              {componentNewMessage1.map((component, index) => {
+                return (
+                  <Fragment key={index}>
+                    {component}
+                  </Fragment>
+                )
+              })}
+              {componentNewMessage2.map((component, index) => {
+                return (
+                  <Fragment key={index}>
+                    {component}
+                  </Fragment>
+                )
+              })}
+              {componentNewMessage3.map((component, index) => {
+                return (
+                  <Fragment key={index}>
+                    {component}
+                  </Fragment>
+                )
+              })}
+              {componentNewMessage4.map((component, index) => {
+                return (
+                  <Fragment key={index}>
+                    {component}
+                  </Fragment>
+                )
+              })}
+              {componentNewMessage5.map((component, index) => {
+                return (
+                  <Fragment key={index}>
+                    {component}
+                  </Fragment>
+                )
+              })}
+              {componentNewMessage6.map((component, index) => {
+                return (
+                  <Fragment key={index}>
+                    {component}
+                  </Fragment>
+                )
+              })}
+              {componentNewMessage7.map((component, index) => {
+                return (
+                  <Fragment key={index}>
+                    {component}
+                  </Fragment>
+                )
+              })}
+              {componentNewMessage8.map((component, index) => {
+                return (
+                  <Fragment key={index}>
+                    {component}
+                  </Fragment>
+                )
+              })}
+              {componentNewMessage9.map((component, index) => {
+                return (
+                  <Fragment key={index}>
+                    {component}
+                  </Fragment>
+                )
+              })}
             </ScrollView>
           </SafeAreaView>
         </View>
@@ -168,7 +302,7 @@ export function ChatPage() {
             {/* <PickImageGallery/> */}
             <TextInput style={styles.textInput}
               onChangeText={(newMessage) => setFromInput(newMessage)} placeholder=""
-            // value={newMessage} onChangeText={setNewMessage}
+              value={fromInput}
             />
             <TouchableOpacity style={{ marginLeft: 'auto', marginRight: 'auto', }} onPress={saveInput}>
               {fromInput ? <AntDesign name="arrowright" style={styles.bottomIconsGreen} /> : <AntDesign name="arrowright" style={styles.bottomIcons} />}
