@@ -75,58 +75,86 @@ export function CreateNewTripScreen({ navigation }: { navigation: any }) {
       </View>
 
       <View style={styles.startingDateBox}>
-        <TouchableOpacity onPress={showDatePickerStart}>
-          <Text style={styles.startingDateText}>Starting date</Text>
+        <Text style={styles.startingDateText}>Starting date</Text>
+
+        <TouchableOpacity onPress={showDatePickerStart} style={styles.touchableDate}>
+          <View style={styles.dateContainer}>
+            {datePickerStart && (
+              <DateTimePicker
+                value={dateStart}
+                mode={'date'}
+                display={Platform.OS === 'ios' ? 'spinner' : 'default'}
+                is24Hour={true}
+                onChange={onDateSelectedStart}
+              />
+            )}
+            {counterDateStart ? <Text style={styles.datestyle}>{dateStart.toDateString()}</Text> : <Text style={styles.datestyle}></Text>}
+          </View>
         </TouchableOpacity>
-        {datePickerStart && (
-          <DateTimePicker
-            value={dateStart}
-            mode={'date'}
-            display={Platform.OS === 'ios' ? 'spinner' : 'default'}
-            is24Hour={true}
-            onChange={onDateSelectedStart}
-          />
-        )}
-        {counterDateStart ? <Text style={styles.datestyle}>{dateStart.toDateString()}</Text> : <Text style={styles.datestyle}></Text>}
       </View>
 
       <View style={styles.endingDateBox}>
-        <TouchableOpacity onPress={showDatePickerEnd}>
-          <Text style={styles.endingDateText}>Endind date</Text>
+        <Text style={styles.endingDateText}>Endind date</Text>
+        <TouchableOpacity onPress={showDatePickerEnd} style={styles.touchableDate}>
+          <View style={styles.dateContainer}>
+            {datePickerEnd && (
+              <DateTimePicker
+                value={dateEnd}
+                mode={'date'}
+                display={Platform.OS === 'ios' ? 'spinner' : 'default'}
+                is24Hour={true}
+                onChange={onDateSelectedEnd}
+              />
+            )}
+            {counterDateEnd ? <Text style={styles.datestyle}>{dateEnd.toDateString()}</Text> : <Text style={styles.datestyle}></Text>}
+          </View>
         </TouchableOpacity>
-        {datePickerEnd && (
-          <DateTimePicker
-            value={dateEnd}
-            mode={'date'}
-            display={Platform.OS === 'ios' ? 'spinner' : 'default'}
-            is24Hour={true}
-            onChange={onDateSelectedEnd}
-          />
-        )}
-        {counterDateEnd ? <Text style={styles.datestyle}>{dateEnd.toDateString()}</Text> : <Text style={styles.datestyle}></Text>}
-      </View> 
+      </View>
+      <View style={{ height: '40%'}}>
+        <Text style={styles.intimacyText}>Intimacy settings</Text>
 
-      <Text style={styles.intimacyText}>Intimacy settings</Text>
+        <View style={styles.intimacyBox}>
+          <View style={styles.columnLeft}>
+            <View style={styles.checkboxContainer}>
+              <Checkbox
+                value={isSelectedTexts}
+                onValueChange={setSelectionTexts}
+                style={styles.checkbox}
+              />
+              <Text style={styles.label}>Texts</Text>
+            </View>
+            <View style={styles.checkboxContainer}>
+              <Checkbox
+                value={isSelectedPhotosVideos}
+                onValueChange={setSelectionPhotosVideos}
+                style={styles.checkbox}
+              />
+              <Text style={styles.label}>Photos/Videos</Text>
+            </View>
+          </View>
 
-      <View style={styles.intimacyBox}>
-        <View style={styles.columnLeft}>
-          <View style={styles.checkboxContainer}>
-            <Checkbox
-              value={isSelectedTexts}
-              onValueChange={setSelectionTexts}
-              style={styles.checkbox}
-            />
-            <Text style={styles.label}>Texts</Text>
+          <View style={styles.columnRight}>
+
+            <View style={styles.checkboxContainer}>
+              <Checkbox
+                value={isSelectedAudioCalls}
+                onValueChange={setSelectionAudioCalls}
+                style={styles.checkbox}
+              />
+              <Text style={styles.label}>Audio Calls</Text>
+            </View>
+            <View style={styles.checkboxContainer}>
+              <Checkbox
+                value={isSelectedVideoCalls}
+                onValueChange={setSelectionVideoCalls}
+                style={styles.checkbox}
+              />
+              <Text style={styles.label}>Video Calls</Text>
+            </View>
+
           </View>
-          <View style={styles.checkboxContainer}>
-            <Checkbox
-              value={isSelectedPhotosVideos}
-              onValueChange={setSelectionPhotosVideos}
-              style={styles.checkbox}
-            />
-            <Text style={styles.label}>Photos/Videos</Text>
-          </View>
-          <View style={styles.checkboxContainer}>
+        </View>
+        <View style={styles.checkboxContainerLastBox}>
             <Checkbox
               value={isSelectedDiary}
               onValueChange={setSelectionDiary}
@@ -134,33 +162,9 @@ export function CreateNewTripScreen({ navigation }: { navigation: any }) {
             />
             <Text style={styles.label}>Diary</Text>
           </View>
-
-        </View>
-
-
-        <View style={styles.columnRight}>
-
-          <View style={styles.checkboxContainer}>
-            <Checkbox
-              value={isSelectedAudioCalls}
-              onValueChange={setSelectionAudioCalls}
-              style={styles.checkbox}
-            />
-            <Text style={styles.label}>Audio Calls</Text>
-          </View>
-          <View style={styles.checkboxContainer}>
-            <Checkbox
-              value={isSelectedVideoCalls}
-              onValueChange={setSelectionVideoCalls}
-              style={styles.checkbox}
-            />
-            <Text style={styles.label}>Video Calls</Text>
-          </View>
-
-        </View>
-
       </View>
-      <View style={{ marginBottom: 200 }}>
+
+      <View style={{ width: '50%' }}>
         <TouchableOpacity style={styles.publishButton} onPress={turnBackToMain}>
           <Text style={styles.insideButton}>Publish</Text>
         </TouchableOpacity>
@@ -180,7 +184,7 @@ const styles = StyleSheet.create({
   },
 
   whereToBox: {
-
+    height: '15%',
   },
 
   textWhereTo: {
@@ -195,17 +199,18 @@ const styles = StyleSheet.create({
 
   inputWhereTo: {
     fontSize: 17,
-    paddingLeft: 10,
     backgroundColor: 'white',
     height: 40,
-    width: 360,
+    width: 250,
     borderRadius: 8,
     marginLeft: 'auto',
     marginRight: 'auto',
+    textAlign: 'center',
+    color: '#88B83B',
   },
 
   startingDateBox: {
-
+    height: '16%',
   },
 
   startingDateText: {
@@ -219,7 +224,8 @@ const styles = StyleSheet.create({
   },
 
   endingDateBox: {
-
+    alignContent: 'center',
+    height: '16%',
   },
 
   endingDateText: {
@@ -235,8 +241,8 @@ const styles = StyleSheet.create({
   intimacyBox: {
     flex: 1,
     flexDirection: 'row',
-
-
+    // borderColor: 'black',
+    // borderWidth: 1,
   },
 
   intimacyText: {
@@ -253,6 +259,15 @@ const styles = StyleSheet.create({
   checkboxContainer: {
     flexDirection: "row",
     marginBottom: 20,
+  },
+  checkboxContainerLastBox: {
+    flexDirection: "row",
+    marginBottom: 65,
+    width: '100%',
+    marginLeft: 'auto',
+    marginRight: 'auto',
+    // borderColor: 'black',
+    // borderWidth: 1,
   },
 
   checkbox: {
@@ -277,21 +292,32 @@ const styles = StyleSheet.create({
     width: 100,
     justifyContent: 'center',
     borderRadius: 15,
+    position: 'absolute',
+    marginLeft: 50,
   },
   insideButton: {
     fontSize: 18,
     color: 'white',
     paddingLeft: 20,
   },
-  datestyle: {
-    fontSize: 15,
-    marginBottom: 15,
-    marginTop: 10,
-    width:'100%',
+  touchableDate: {
+    backgroundColor: 'white',
+    borderRadius: 8,
+    height: 40,
+    width: 250,
+    justifyContent: 'center',
+    alignContent: 'center',
+  },
+  dateContainer: {
     marginLeft: 'auto',
     marginRight: 'auto',
-    color:'#88B83B',
-},
+    marginBottom: 10,
+  },
+  datestyle: {
+    fontSize: 15,
+    color: '#88B83B',
+    paddingTop: 10,
+  },
 
 
 
