@@ -132,7 +132,7 @@ const styles = StyleSheet.create({
     fontSize: 17,
     marginBottom: 10,
     marginTop: 48,
-    width: 220,
+    width: 260,
     marginLeft: 'auto',
     marginRight: 'auto',
     color:"black",
@@ -179,7 +179,7 @@ const styles = StyleSheet.create({
   },
 
   text_login_btn_white: {
-    width: 78,
+    width: 90,
     height: 32,
     fontSize: 24,
     lineHeight: 29,
@@ -188,7 +188,7 @@ const styles = StyleSheet.create({
   },
 
   text_login_btn_blue: {
-    width: 78,
+    width: 90,
     height: 32,
     fontSize: 24,
     lineHeight: 29,
@@ -197,7 +197,7 @@ const styles = StyleSheet.create({
   },
 
   loginBtnWhite:{
-    width: 97,
+    width: 120,
     borderRadius: 25,
     height: 57,
     alignItems: "center",
@@ -213,7 +213,7 @@ const styles = StyleSheet.create({
   },
 
   loginBtnBlue: {
-    width: 97,
+    width: 120,
     borderRadius: 25,
     height: 57,
     alignItems: "center",

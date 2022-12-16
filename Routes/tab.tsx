@@ -6,7 +6,8 @@ const Tab = createBottomTabNavigator();
 import { HomePage } from '../screens/HomePage';
 import { Profile } from '../screens/ProfilePage';
 import { Ionicons } from '@expo/vector-icons';
-import { SearchRoutes } from './searchtrips';
+// import { SearchRoutes } from './searchtrips';
+import { NewTripRoutes } from './newtrip';
 import { ChatRoutes } from './chat';
 import { TripRoutes } from './tripRoutes';
 import { HomeRoutes } from './homeroutes';
@@ -34,21 +35,21 @@ export function TabRoutes() {
         component={HomeRoutes}
       />
       <Tab.Screen
-        name='Search'
+        name='New Trip'
         options={{
-          tabBarLabel: 'Search',
+          tabBarLabel: 'New trip',
           headerShown: false,
           tabBarIcon: ({ focused }) =>
             <Ionicons
-              name={focused ? "search" : "search-outline"}
+              name={focused ? "add-circle" : "add-circle-outline"}
               size={35} color="white" />,
         }}
-        component={SearchRoutes}
+        component={NewTripRoutes}
       />
       <Tab.Screen
         name='Trip'
         options={{
-          tabBarLabel: 'Trip',
+          tabBarLabel: 'Your trips',
           headerShown: false,
           tabBarIcon: ({ focused }) =>
             <Ionicons

@@ -50,17 +50,6 @@ export function TripRoutes({ navigation }: { navigation: any }) {
         component={TripPage}
       />
 
-      <Trip.Screen
-        name='CreateNewTrip'
-        options={{
-          headerRight: () => (
-            <Pressable onPress={turnBackToMain}>
-              <Image source={turnBack} />
-            </Pressable>
-          ),
-        }}
-        component={CreateNewTripScreen}
-      />
 
       <Trip.Screen
         name='PreConfirmTrip'

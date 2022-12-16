@@ -94,7 +94,7 @@ export function CreateNewTripScreen({ navigation }: { navigation: any }) {
       </View>
 
       <View style={styles.endingDateBox}>
-        <Text style={styles.endingDateText}>Endind date</Text>
+        <Text style={styles.endingDateText}>Ending date</Text>
         <TouchableOpacity onPress={showDatePickerEnd} style={styles.touchableDate}>
           <View style={styles.dateContainer}>
             {datePickerEnd && (
@@ -177,7 +177,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#EBEBEB",
-    alignItems: "center",
+    padding: 40,
+    // alignItems: "center",
     justifyContent: "flex-start",
     // fontFamily: 'Inter',
     fontStyle: 'normal',
@@ -203,7 +204,7 @@ const styles = StyleSheet.create({
     height: 40,
     width: 250,
     borderRadius: 8,
-    marginLeft: 'auto',
+    // marginLeft: 'auto',
     marginRight: 'auto',
     textAlign: 'center',
     color: '#88B83B',
@@ -262,20 +263,21 @@ const styles = StyleSheet.create({
   },
   checkboxContainerLastBox: {
     flexDirection: "row",
-    marginBottom: 65,
-    width: '100%',
-    marginLeft: 'auto',
-    marginRight: 'auto',
+    marginBottom: 95,
+    // width: '100%',
+    // marginLeft: 'auto',
+    // marginRight: 'auto',
     // borderColor: 'black',
     // borderWidth: 1,
   },
 
   checkbox: {
     alignSelf: "center",
+    marginRight: 15,
   },
 
   label: {
-    margin: 10,
+    // margin: 10,
     marginRight: 15,
   },
 
@@ -288,17 +290,17 @@ const styles = StyleSheet.create({
   },
   publishButton: {
     backgroundColor: "#1D5F98",
-    height: 40,
-    width: 100,
+    height: 60,
+    width: 150,
     justifyContent: 'center',
-    borderRadius: 15,
+    borderRadius: 40,
     position: 'absolute',
-    marginLeft: 50,
+    marginLeft: 90,
   },
   insideButton: {
-    fontSize: 18,
+    fontSize: 22,
     color: 'white',
-    paddingLeft: 20,
+    paddingLeft: 37,
   },
   touchableDate: {
     backgroundColor: 'white',
