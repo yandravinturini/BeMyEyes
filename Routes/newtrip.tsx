@@ -1,5 +1,6 @@
 import { FoundTrips } from '../screens/FoundTripsPage';
 import { NewTrip } from '../screens/NewTrip'
+import { PreConfirmScreen } from '../screens/PreConfirmScreen';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { Search } from '../screens/SearchPage';
 import { CreateNewTripScreen } from '../screens/CreateNewTripScreen';
@@ -10,18 +11,15 @@ const NewTripX = createNativeStackNavigator();
 
 export function NewTripRoutes({ route, navigation }){
   function turnBackToMain() {
-  //  navigation.navigate('FoundTrips', {firstLoc: destiny,});
     navigation.navigate('WhichOne');
   }
 
   function turnBackToSearch() {
-  //  navigation.navigate('FoundTrips', {firstLoc: destiny,});
     navigation.navigate('Passenger');
   }
 
   function test() {
    navigation.navigate('FoundTrips', {firstLoc: destiny,});
-    // navigation.navigate('WhichOne');
   }
 
   return (
@@ -87,6 +85,18 @@ export function NewTripRoutes({ route, navigation }){
               }}
               component={FoundTrips}   
             />
+
+<NewTripX.Screen
+        name='PreConfirmTrip'
+        options={{
+          headerRight: () => (
+            <Pressable onPress={turnBackToSearch}>
+              <Image source={turnBack} />
+            </Pressable>
+          ),
+        }}
+        component={PreConfirmScreen}
+      />
 
       <NewTripX.Screen 
               name= 'Traveler'                     

@@ -31,7 +31,7 @@ export function HomePage({ navigation }: { navigation: any }) {
         <Carousel navigation={navigation} />
       </View>
 
-      <Text style={styles.titleDestination}>Choose a destination</Text>
+      <Text style={styles.titleDestination}>Explore the world</Text>
       <View>
         <MapView provider="google"
           style={styles.map}
@@ -60,14 +60,15 @@ const styles = StyleSheet.create({
 
 
   titles: {
+    marginTop: 10,
     paddingBottom: 20,
-    marginLeft: -215,
+    marginLeft: -250,
     fontSize: 20,
   },
 
   titleDestination: {
     paddingBottom: 20,
-    marginLeft: -120,
+    marginLeft: -200,
     fontSize: 20,
   },
 

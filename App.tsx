@@ -1,4 +1,4 @@
-import { LoginRoutes } from './Routes';
+import { LoginRoutes } from './routes';
 
 export default function App() {
   return (

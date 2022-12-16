@@ -75,10 +75,9 @@ const styles = StyleSheet.create({
         backgroundColor: "#EBEBEB",
     },
     titles: {
-        fontSize: 24,
-        paddingVertical: 10,
-        marginTop: 20,
-        paddingLeft:20,
+        fontSize: 20,
+        paddingVertical: 20,
+        paddingLeft: 30,
     },
     card: {
         backgroundColor: '#EBEBEB',

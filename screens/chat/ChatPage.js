@@ -297,7 +297,7 @@ export function ChatPage() {
         <View style={{ height: '15%', justifyContent: 'center', }}>
           <View style={styles.inputContainer}>
             <TouchableOpacity onPress={() => pickImage()} style={{ marginLeft: 'auto', marginRight: 'auto', }}>
-              <Ionicons name="camera-outline" style={styles.bottomIcons} />
+              <Ionicons name="camera-outline" style={styles.camera} />
             </TouchableOpacity>
             {/* <PickImageGallery/> */}
             <TextInput style={styles.textInput}
@@ -382,6 +382,12 @@ const styles = StyleSheet.create({
     marginTop: 'auto',
     marginBottom: 'auto',
     color: '#EBEBEB',
+  },
+  camera: {
+    fontSize: 35,
+    marginTop: 'auto',
+    marginBottom: 'auto',
+    color: '#1D5F98',
   },
   bottomIconsGreen: {
     fontSize: 35,

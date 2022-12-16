@@ -18,7 +18,7 @@ import {
 export function CreateNewTripScreen({ navigation }: { navigation: any }) {
 
   function turnBackToMain() {
-    navigation.navigate('MainTripPage');
+    navigation.navigate('WhichOne');
   }
 
   const [whereTo, setUsername] = useState("");

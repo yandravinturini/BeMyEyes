@@ -81,11 +81,12 @@ const styles = StyleSheet.create({
   },
 
   title: {
-    marginBottom: 10,
-    marginTop: 30,
+    marginLeft: 30,
+    marginBottom: 20,
+    marginTop: 15,
     // fontFamily: 'Inter',
     fontStyle: 'normal',
-    fontSize: 24,
+    fontSize: 20,
     lineHeight: 29,
   }
 

@@ -166,8 +166,9 @@ const styles = StyleSheet.create({
         // fontFamily: 'Inter',
     },
     userImage: {
-        width: 45,
-        height: 45,
+        borderRadius: 50,
+        width: 55,
+        height: 55,
         marginTop: 'auto',
         marginBottom: 'auto',
         marginRight: 10,

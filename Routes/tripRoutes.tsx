@@ -19,10 +19,6 @@ export function TripRoutes({ navigation }: { navigation: any }) {
     navigation.navigate('MainTripPage');
   }
 
-  function goToCreateNewTrio() {
-    navigation.navigate('CreateNewTrip');
-  }
-
   return (
     <Trip.Navigator
       initialRouteName='MainTripPage'
@@ -40,28 +36,9 @@ export function TripRoutes({ navigation }: { navigation: any }) {
     >
       <Trip.Screen
         name='MainTripPage'
-        options={{
-          headerRight: () => (
-            <Pressable onPress={goToCreateNewTrio}>
-              <Image source={addTrip} />
-            </Pressable>
-          ),
-        }}
         component={TripPage}
       />
 
-
-      <Trip.Screen
-        name='PreConfirmTrip'
-        options={{
-          headerRight: () => (
-            <Pressable onPress={turnBackToMain}>
-              <Image source={turnBack} />
-            </Pressable>
-          ),
-        }}
-        component={PreConfirmScreen}
-      />
 
       <Trip.Screen
         name='PosConfirmTrip'
